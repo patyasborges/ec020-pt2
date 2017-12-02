@@ -42,6 +42,21 @@
 					<entry kind="macro" name="__REDLIB__" value=""/>
 					<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC17xx"/>
 				</resource>
+				<resource project-relative-path="src/ethmac.c">
+					<entry kind="includePath" name="/Lib_CMSISv1p30_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Lib_EaBaseBoard/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Lib_MCU/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__NEWLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC17xx"/>
+				</resource>
 				<resource project-relative-path="ew_systick.c">
 					<entry kind="includePath" name="/FreeRTOS_Library/demo_code">
 						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
@@ -64,21 +79,6 @@
 					<entry kind="macro" name="DEBUG" value=""/>
 					<entry kind="macro" name="__CODE_RED" value=""/>
 					<entry kind="macro" name="__REDLIB__" value=""/>
-					<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC17xx"/>
-				</resource>
-				<resource project-relative-path="src/ethmac.c">
-					<entry kind="includePath" name="/Lib_CMSISv1p30_LPC17xx/inc">
-						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
-					</entry>
-					<entry kind="includePath" name="/Lib_EaBaseBoard/inc">
-						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
-					</entry>
-					<entry kind="includePath" name="/Lib_MCU/inc">
-						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
-					</entry>
-					<entry kind="macro" name="DEBUG" value=""/>
-					<entry kind="macro" name="__CODE_RED" value=""/>
-					<entry kind="macro" name="__NEWLIB__" value=""/>
 					<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC17xx"/>
 				</resource>
 				<resource project-relative-path="cr_startup_lpc17.c">
@@ -105,7 +105,7 @@
 					<entry kind="macro" name="__REDLIB__" value=""/>
 					<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC17xx"/>
 				</resource>
-				<resource project-relative-path="src/easyweb.c">
+				<resource project-relative-path="src/tcpip.c">
 					<entry kind="includePath" name="/Lib_CMSISv1p30_LPC17xx/inc">
 						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 					</entry>
@@ -120,7 +120,7 @@
 					<entry kind="macro" name="__NEWLIB__" value=""/>
 					<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC17xx"/>
 				</resource>
-				<resource project-relative-path="src/tcpip.c">
+				<resource project-relative-path="src/easyweb.c">
 					<entry kind="includePath" name="/Lib_CMSISv1p30_LPC17xx/inc">
 						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 					</entry>

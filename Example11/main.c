@@ -33,10 +33,6 @@
 unsigned int aaPagecounter = 0;
 unsigned int adcValue = 0;
 
-int32_t xoff = 0;
-int32_t yoff = 0;
-int32_t zoff = 0;
-
 static void init_ssp(void) {
 	SSP_CFG_Type SSP_ConfigStruct;
 	PINSEL_CFG_Type PinCfg;
@@ -95,6 +91,7 @@ static void init_i2c(void) {
  only a single instance is created of the receiver task. */
 static void vSenderTask(void *pvParameters);
 static void vReceiverTask(void *pvParameters);
+static void vReceiverTask1(void *pvParameters);
 
 /*-----------------------------------------------------------*/
 
@@ -107,6 +104,14 @@ typedef struct {
 	unsigned char ucValue;
 	unsigned char ucSource;
 } xData;
+
+typedef struct {
+	int32_t xoff ;
+	int32_t yoff ;
+	int32_t zoff ;
+} xData1;
+
+xData1 total;
 
 /* Declare two variables of type xData that will be passed on the queue. */
 static const xData xStructsToSend[2] = { { 100, mainSENDER_1 }, /* Used by Sender1. */
@@ -135,20 +140,21 @@ int readAcc()
 	int8_t z = 0;
 
 	acc_read(&x, &y, &z);
-	xoff = 0 - x;
-	yoff = 0 - y;
-	zoff = 64 - z;
+
+	total.xoff = 0 - x;
+	total.yoff = 0 - y;
+	total.zoff = 64 - z;
 }
 
 void printOled()
 {
 	char NewKey[6];
 
-	sprintf(NewKey, "%04d", xoff); // insert pseudo-ADconverter value
+	sprintf(NewKey, "%04d", total.xoff); // insert pseudo-ADconverter value
 	oled_putString(1, 25, NewKey, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
-	sprintf(NewKey, "%04d", yoff); // insert pseudo-ADconverter value
+	sprintf(NewKey, "%04d", total.yoff); // insert pseudo-ADconverter value
 	oled_putString(1, 33, NewKey, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
-	sprintf(NewKey, "%04d", zoff); // insert pseudo-ADconverter value
+	sprintf(NewKey, "%04d", total.zoff); // insert pseudo-ADconverter value
 	oled_putString(1, 41, NewKey, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
 }
 
@@ -257,19 +263,19 @@ void InsertDynamicValues(void) {
 					switch (*(Key + 2)) {
 					case '8':                                 // "AD8%"?
 					{
-						sprintf(NewKey, "%04d", xoff); // insert pseudo-ADconverter value
+						sprintf(NewKey, "%04d",  total.xoff); // insert pseudo-ADconverter value
 						memcpy(Key, NewKey, 4);
 						break;
 					}
 					case '7':                                 // "AD7%"?
 					{
-						sprintf(NewKey, "%04d", yoff); // insert pseudo-ADconverter value
+						sprintf(NewKey, "%04d",  total.yoff); // insert pseudo-ADconverter value
 						memcpy(Key, NewKey, 4);
 						break;
 					}
 					case '1':                                 // "AD1%"?
 					{
-						sprintf(NewKey, "%04d", zoff); // insert pseudo-ADconverter value
+						sprintf(NewKey, "%04d",  total.zoff); // insert pseudo-ADconverter value
 						memcpy(Key, NewKey, 4);
 						break;
 					}
@@ -386,6 +392,49 @@ static void vReceiverTask(void *pvParameters) {
 			}
 		} else {
 			/* We did not receive anything from the queue.  This must be an error 
+			 as this task should only run when the queue is full. */
+			vPrintString("Could not receive from the queue.\n");
+		}
+	}
+}
+
+static void vReceiverTask1(void *pvParameters) {
+	/* Declare the structure that will hold the values received from the queue. */
+	xData1 xReceivedStructure;
+	portBASE_TYPE xStatus;
+
+	/* This task is also defined within an infinite loop. */
+	for (;;) {
+		/* As this task only runs when the sending tasks are in the Blocked state,
+		 and the sending tasks only block when the queue is full, this task should
+		 always find the queue to be full.  3 is the queue length. */
+		if (uxQueueMessagesWaiting(xQueue) != 3) {
+			vPrintString("Queue should have been full!\n");
+		}
+
+		/* The first parameter is the queue from which data is to be received.  The
+		 queue is created before the scheduler is started, and therefore before this
+		 task runs for the first time.
+
+		 The second parameter is the buffer into which the received data will be
+		 placed.  In this case the buffer is simply the address of a variable that
+		 has the required size to hold the received structure.
+
+		 The last parameter is the block time - the maximum amount of time that the
+		 task should remain in the Blocked state to wait for data to be available
+		 should the queue already be empty.  A block time is not necessary as this
+		 task will only run when the queue is full so data will always be available. */
+		xStatus = xQueueReceive( xQueue, &xReceivedStructure, 0 );
+
+		if (xStatus == pdPASS) {
+			/* Data was successfully received from the queue, print out the received
+			 value and the source of the value. */
+
+				vPrintStringAndNumber("From Sender 1 = ",
+						xReceivedStructure.xoff);
+
+		} else {
+			/* We did not receive anything from the queue.  This must be an error
 			 as this task should only run when the queue is full. */
 			vPrintString("Could not receive from the queue.\n");
 		}
