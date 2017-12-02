@@ -49,6 +49,32 @@ executing. */
 const char *pcTextForTask1 = "Task 1 is running\n";
 const char *pcTextForTask2 = "Task 2 is running\n";
 
+
+void vTaskFunction2( void *pvParameters )
+{
+char *pcTaskName;
+volatile unsigned long ul;
+
+	/* The string to print out is passed in via the parameter.  Cast this to a
+	character pointer. */
+	pcTaskName = ( char * ) pvParameters;
+
+	/* As per most tasks, this task is implemented in an infinite loop. */
+	for( ;; )
+	{
+		/* Print out the name of this task. */
+		vPrintString( pcTaskName );
+
+		/* Delay for a period. */
+		for( ul = 0; ul < mainDELAY_LOOP_COUNT; ul++ )
+		{
+			/* This loop is just a very crude delay implementation.  There is
+			nothing to do in here.  Later exercises will replace this crude
+			loop with a proper delay/sleep function. */
+		}
+	}
+}
+
 /*-----------------------------------------------------------*/
 
 int main( void )
@@ -64,7 +90,7 @@ int main( void )
 	/* Create the other task in exactly the same way.  Note this time that we
 	are creating the SAME task, but passing in a different parameter.  We are
 	creating two instances of a single task implementation. */
-	xTaskCreate( vTaskFunction, "Task 2", 240, (void*)pcTextForTask2, 1, NULL );
+	xTaskCreate( vTaskFunction2, "Task 2", 240, (void*)pcTextForTask2, 1, NULL );
 
 	/* Start the scheduler so our tasks start executing. */
 	vTaskStartScheduler();	

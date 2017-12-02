@@ -1,4 +1,4 @@
-18:09:22 **** Build of configuration Debug for project Example10 ****
+20:18:54 **** Build of configuration Debug for project Example10 ****
 make all 
 Building file: ../cr_startup_lpc17.c
 Invoking: MCU C Compiler
@@ -22,5 +22,5 @@ arm-none-eabi-size Example10.axf; # arm-none-eabi-objcopy -O ihex Example10.axf 
   17688	      8	  10916	  28612	   6fc4	Example10.axf
  
 
-18:09:23 Build Finished (took 1s.246ms)
+20:18:55 Build Finished (took 885ms)
 

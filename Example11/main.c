@@ -181,9 +181,37 @@ void vTaskFunction(void *pvParameters) {
 		/* Print out the name of this task. */
 		vPrintString(pcTaskName);
 
-		readAcc();
+		//readAcc();
 
-		printOled();
+		//printOled();
+
+		//printHttp();
+
+		/* Delay for a period. */
+		for (ul = 0; ul < mainDELAY_LOOP_COUNT; ul++) {
+		/* This loop is just a very crude delay implementation.  There is
+		 nothing to do in here.  Later exercises will replace this crude
+		 loop with a proper delay/sleep function. */
+		}
+	}
+}
+
+void vTaskFunction1(void *pvParameters) {
+	char *pcTaskName;
+	volatile unsigned long ul;
+
+	/* The string to print out is passed in via the parameter.  Cast this to a
+	 character pointer. */
+	pcTaskName = (char *) pvParameters;
+
+	/* As per most tasks, this task is implemented in an infinite loop. */
+	for (;;) {
+		/* Print out the name of this task. */
+		vPrintString(pcTaskName);
+
+		//readAcc();
+
+		//printOled();
 
 		//printHttp();
 
@@ -200,7 +228,7 @@ int main(void) {
 
 	vPrintString("1\n");
 
-	initAll();
+	//initAll();
 
 	//xQueue = xQueueCreate(3, sizeof(xData));
 
@@ -215,6 +243,7 @@ int main(void) {
 	//}
 
 	xTaskCreate(vTaskFunction, "Lendo sensor", 240, (void* )pcTextForTask1, 1, NULL);
+	xTaskCreate(vTaskFunction1, "Escrevendo...", 240, (void* )pcTextForTask2, 1, NULL);
 
 	vTaskStartScheduler();
 
@@ -479,14 +508,28 @@ static void vReceiverTask1(void *pvParameters) {
 		}
 	}
 }
-/*-----------------------------------------------------------*/
 
-void vApplicationMallocFailedHook(void) {
+void vApplicationMallocFailedHook( void )
+{
 	/* This function will only be called if an API call to create a task, queue
-	 or semaphore fails because there is too little heap RAM remaining. */
-	for (;;)
+	or semaphore fails because there is too little heap RAM remaining. */
+	for( ;; )
 		;
 }
+
+/*-----------------------------------------------------------*/
+
+void vApplicationIdleHook( void )
+{
+	/* This example does not use the idle hook to perform any processing. */
+}
+/*-----------------------------------------------------------*/
+
+void vApplicationTickHook( void )
+{
+	/* This example does not use the tick hook to perform any processing. */
+}
+/*-----------------------------------------------------------*/
 /*-----------------------------------------------------------*/
 
 void vApplicationStackOverflowHook(xTaskHandle *pxTask, signed char *pcTaskName) {
@@ -498,11 +541,3 @@ void vApplicationStackOverflowHook(xTaskHandle *pxTask, signed char *pcTaskName)
 }
 /*-----------------------------------------------------------*/
 
-void vApplicationIdleHook(void) {
-	/* This example does not use the idle hook to perform any processing. */
-}
-/*-----------------------------------------------------------*/
-
-void vApplicationTickHook(void) {
-	/* This example does not use the tick hook to perform any processing. */
-}

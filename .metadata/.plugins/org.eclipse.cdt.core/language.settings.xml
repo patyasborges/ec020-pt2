@@ -115,12 +115,6 @@
 					<entry kind="includePath" name="/FreeRTOS_Library/portable">
 						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 					</entry>
-					<entry kind="includePath" name="/Lib_EaBaseBoard/inc">
-						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
-					</entry>
-					<entry kind="includePath" name="/Lib_MCU/inc">
-						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
-					</entry>
 					<entry kind="macro" name="DEBUG" value=""/>
 					<entry kind="macro" name="__CODE_RED" value=""/>
 					<entry kind="macro" name="__REDLIB__" value=""/>
