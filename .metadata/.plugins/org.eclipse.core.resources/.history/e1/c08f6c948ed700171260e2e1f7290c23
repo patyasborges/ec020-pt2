@@ -169,15 +169,15 @@ int main(void) {
 
 //	while (1) {
 //
-		//readAcc();
-
-		//printOled();
-		//printHttp();
+//		readAcc();
+//
+//		printOled();
+//		printHttp();
 //	}
 
 	xQueue = xQueueCreate(3, sizeof(xData));
 
-
+	vPrintString("Could not receive from the queue 1.\n");
 
 	if (xQueue != NULL ) {
 		xTaskCreate(vSenderTask, "Sender1", 240, (void * ) &(xStructsToSend[0]),
@@ -189,7 +189,6 @@ int main(void) {
 
 		vTaskStartScheduler();
 	} else {
-		vPrintString("Could not receive from the queue 1.\n");
 	}
 
 	for (;;)

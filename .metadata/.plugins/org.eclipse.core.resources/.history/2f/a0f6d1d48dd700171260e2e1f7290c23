@@ -106,9 +106,9 @@ typedef struct {
 } xData;
 
 typedef struct {
-	int32_t xoff;
-	int32_t yoff;
-	int32_t zoff;
+	int32_t xoff ;
+	int32_t yoff ;
+	int32_t zoff ;
 } xData1;
 
 xData1 total;
@@ -118,7 +118,8 @@ static const xData xStructsToSend[2] = { { 100, mainSENDER_1 }, /* Used by Sende
 { 200, mainSENDER_2 } /* Used by Sender2. */
 };
 
-void initAll() {
+void initAll()
+{
 	init_ssp();
 	init_i2c();
 	acc_init();
@@ -132,7 +133,8 @@ void initAll() {
 	TCPLocalPort = TCP_PORT_HTTP;               // set port we want to listen to
 }
 
-int readAcc() {
+int readAcc()
+{
 	int8_t x = 0;
 	int8_t y = 0;
 	int8_t z = 0;
@@ -144,7 +146,8 @@ int readAcc() {
 	total.zoff = 64 - z;
 }
 
-void printOled() {
+void printOled()
+{
 	char NewKey[6];
 
 	sprintf(NewKey, "%04d", total.xoff); // insert pseudo-ADconverter value
@@ -165,36 +168,16 @@ void printHttp() {
 
 int main(void) {
 
-	//initAll();
+	initAll();
 
-//	while (1) {
-//
-		//readAcc();
+	while (1) {
 
-		//printOled();
-		//printHttp();
-//	}
+		readAcc();
 
-	xQueue = xQueueCreate(3, sizeof(xData));
+		printOled();
 
-
-
-	if (xQueue != NULL ) {
-		xTaskCreate(vSenderTask, "Sender1", 240, (void * ) &(xStructsToSend[0]),
-				2, NULL);
-		xTaskCreate(vSenderTask, "Sender2", 240, (void * ) &(xStructsToSend[1]),
-				2, NULL);
-
-		xTaskCreate(vReceiverTask, "Receiver", 240, NULL, 1, NULL);
-
-		vTaskStartScheduler();
-	} else {
-		vPrintString("Could not receive from the queue 1.\n");
+		printHttp();
 	}
-
-	for (;;)
-		;
-	return 0;
 }
 
 // This function implements a very simple dynamic HTTP-server.
@@ -280,19 +263,19 @@ void InsertDynamicValues(void) {
 					switch (*(Key + 2)) {
 					case '8':                                 // "AD8%"?
 					{
-						sprintf(NewKey, "%04d", total.xoff); // insert pseudo-ADconverter value
+						sprintf(NewKey, "%04d",  total.xoff); // insert pseudo-ADconverter value
 						memcpy(Key, NewKey, 4);
 						break;
 					}
 					case '7':                                 // "AD7%"?
 					{
-						sprintf(NewKey, "%04d", total.yoff); // insert pseudo-ADconverter value
+						sprintf(NewKey, "%04d",  total.yoff); // insert pseudo-ADconverter value
 						memcpy(Key, NewKey, 4);
 						break;
 					}
 					case '1':                                 // "AD1%"?
 					{
-						sprintf(NewKey, "%04d", total.zoff); // insert pseudo-ADconverter value
+						sprintf(NewKey, "%04d",  total.zoff); // insert pseudo-ADconverter value
 						memcpy(Key, NewKey, 4);
 						break;
 					}
@@ -447,7 +430,8 @@ static void vReceiverTask1(void *pvParameters) {
 			/* Data was successfully received from the queue, print out the received
 			 value and the source of the value. */
 
-			vPrintStringAndNumber("From Sender 1 = ", xReceivedStructure.xoff);
+				vPrintStringAndNumber("From Sender 1 = ",
+						xReceivedStructure.xoff);
 
 		} else {
 			/* We did not receive anything from the queue.  This must be an error

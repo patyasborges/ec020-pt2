@@ -165,14 +165,14 @@ void printHttp() {
 
 int main(void) {
 
-	//initAll();
+	initAll();
 
 //	while (1) {
 //
-		//readAcc();
+		readAcc();
 
-		//printOled();
-		//printHttp();
+		printOled();
+		printHttp();
 //	}
 
 	xQueue = xQueueCreate(3, sizeof(xData));

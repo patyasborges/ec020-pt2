@@ -169,10 +169,10 @@ int main(void) {
 
 //	while (1) {
 //
-		//readAcc();
-
-		//printOled();
-		//printHttp();
+//		readAcc();
+//
+//		printOled();
+//		printHttp();
 //	}
 
 	xQueue = xQueueCreate(3, sizeof(xData));
