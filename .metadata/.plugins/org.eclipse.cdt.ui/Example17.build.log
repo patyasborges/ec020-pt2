@@ -1,0 +1,61 @@
+18:09:00 **** Build of configuration Debug for project Example17 ****
+make all 
+Building file: ../FreeRTOS_Source/portable/heap_2.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17\FreeRTOS_Source\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17\FreeRTOS_Source\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -O1 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"FreeRTOS_Source/portable/heap_2.d" -MT"FreeRTOS_Source/portable/heap_2.d" -o "FreeRTOS_Source/portable/heap_2.o" "../FreeRTOS_Source/portable/heap_2.c"
+Finished building: ../FreeRTOS_Source/portable/heap_2.c
+ 
+Building file: ../FreeRTOS_Source/portable/port.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17\FreeRTOS_Source\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17\FreeRTOS_Source\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -O1 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"FreeRTOS_Source/portable/port.d" -MT"FreeRTOS_Source/portable/port.d" -o "FreeRTOS_Source/portable/port.o" "../FreeRTOS_Source/portable/port.c"
+Finished building: ../FreeRTOS_Source/portable/port.c
+ 
+Building file: ../FreeRTOS_Source/demo_code/basic_io.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17\FreeRTOS_Source\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17\FreeRTOS_Source\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -O1 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"FreeRTOS_Source/demo_code/basic_io.d" -MT"FreeRTOS_Source/demo_code/basic_io.d" -o "FreeRTOS_Source/demo_code/basic_io.o" "../FreeRTOS_Source/demo_code/basic_io.c"
+Finished building: ../FreeRTOS_Source/demo_code/basic_io.c
+ 
+Building file: ../FreeRTOS_Source/demo_code/consoleprint.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17\FreeRTOS_Source\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17\FreeRTOS_Source\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -O1 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"FreeRTOS_Source/demo_code/consoleprint.d" -MT"FreeRTOS_Source/demo_code/consoleprint.d" -o "FreeRTOS_Source/demo_code/consoleprint.o" "../FreeRTOS_Source/demo_code/consoleprint.c"
+Finished building: ../FreeRTOS_Source/demo_code/consoleprint.c
+ 
+Building file: ../FreeRTOS_Source/list.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17\FreeRTOS_Source\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17\FreeRTOS_Source\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -O1 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"FreeRTOS_Source/list.d" -MT"FreeRTOS_Source/list.d" -o "FreeRTOS_Source/list.o" "../FreeRTOS_Source/list.c"
+Finished building: ../FreeRTOS_Source/list.c
+ 
+Building file: ../FreeRTOS_Source/queue.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17\FreeRTOS_Source\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17\FreeRTOS_Source\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -O1 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"FreeRTOS_Source/queue.d" -MT"FreeRTOS_Source/queue.d" -o "FreeRTOS_Source/queue.o" "../FreeRTOS_Source/queue.c"
+Finished building: ../FreeRTOS_Source/queue.c
+ 
+Building file: ../FreeRTOS_Source/tasks.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17\FreeRTOS_Source\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17\FreeRTOS_Source\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -O1 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"FreeRTOS_Source/tasks.d" -MT"FreeRTOS_Source/tasks.d" -o "FreeRTOS_Source/tasks.o" "../FreeRTOS_Source/tasks.c"
+Finished building: ../FreeRTOS_Source/tasks.c
+ 
+Building file: ../cr_startup_lpc17.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17\FreeRTOS_Source\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17\FreeRTOS_Source\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -O1 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"cr_startup_lpc17.d" -MT"cr_startup_lpc17.d" -o "cr_startup_lpc17.o" "../cr_startup_lpc17.c"
+Finished building: ../cr_startup_lpc17.c
+ 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17\FreeRTOS_Source\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example17\FreeRTOS_Source\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -O1 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Example17.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\Debug" -Xlinker --gc-sections -Xlinker -Map=Example17.map -mcpu=cortex-m3 -mthumb -T "Example17_Debug.ld" -o "Example17.axf"  ./FreeRTOS_Source/portable/heap_2.o ./FreeRTOS_Source/portable/port.o  ./FreeRTOS_Source/demo_code/basic_io.o ./FreeRTOS_Source/demo_code/consoleprint.o  ./FreeRTOS_Source/list.o ./FreeRTOS_Source/queue.o ./FreeRTOS_Source/tasks.o  ./cr_startup_lpc17.o ./main.o   -lCMSISv1p30_LPC17xx
+Finished building target: Example17.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Example17.axf; # arm-none-eabi-objcopy -O ihex Example17.axf Example17.hex ;
+   text	   data	    bss	    dec	    hex	filename
+  16360	      8	  11116	  27484	   6b5c	Example17.axf
+ 
+
+18:09:05 Build Finished (took 4s.341ms)
+
