@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.internal.QuickAccess">
-		<item value="1025" key="dialogWidth"/>
-		<item value="533" key="dialogHeight"/>
+		<item value="978" key="dialogWidth"/>
+		<item value="555" key="dialogHeight"/>
 		<list key="orderedProviders">
+			<item value="org.eclipse.e4.ui.parts"/>
 		</list>
 		<list key="textArray">
+			<item value="bre"/>
 		</list>
 		<list key="orderedElements">
+			<item value="org.eclipse.debug.ui.BreakpointView"/>
 		</list>
 		<list key="textEntries">
+			<item value="1"/>
 		</list>
 	</section>
 	<section name="WorkbenchPreferenceDialogSettings">

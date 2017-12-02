@@ -164,11 +164,9 @@ void (* const g_pfnVectors[])(void) = {
 	0,										// Reserved
 	0,										// Reserved
 	0,
-	SVCall_Handler,	 	// Reserved
-	vPortSVCHandler,                        // SVCall handler
-	DebugMon_Handler,
-	PendSV_Handler,	// Debug monitor handler
-	SysTick_Handler,
+	vPortSVCHandler,
+	SVCall_Handler,
+	DebugMon_Handler,						// Debug monitor handler
 	0,										// Reserved
 	xPortPendSVHandler,                     // The PendSV handler
 	xPortSysTickHandler,                    // The SysTick handler

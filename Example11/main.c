@@ -106,9 +106,9 @@ typedef struct {
 } xData;
 
 typedef struct {
-	int32_t xoff ;
-	int32_t yoff ;
-	int32_t zoff ;
+	int32_t xoff;
+	int32_t yoff;
+	int32_t zoff;
 } xData1;
 
 xData1 total;
@@ -118,8 +118,7 @@ static const xData xStructsToSend[2] = { { 100, mainSENDER_1 }, /* Used by Sende
 { 200, mainSENDER_2 } /* Used by Sender2. */
 };
 
-void initAll()
-{
+void initAll() {
 	init_ssp();
 	init_i2c();
 	acc_init();
@@ -133,8 +132,7 @@ void initAll()
 	TCPLocalPort = TCP_PORT_HTTP;               // set port we want to listen to
 }
 
-int readAcc()
-{
+int readAcc() {
 	int8_t x = 0;
 	int8_t y = 0;
 	int8_t z = 0;
@@ -146,8 +144,7 @@ int readAcc()
 	total.zoff = 64 - z;
 }
 
-void printOled()
-{
+void printOled() {
 	char NewKey[6];
 
 	sprintf(NewKey, "%04d", total.xoff); // insert pseudo-ADconverter value
@@ -166,27 +163,82 @@ void printHttp() {
 	HTTPServer();
 }
 
-int main(void) {
+const char *pcTextForTask1 = "Task 1 is running\n";
+const char *pcTextForTask2 = "Task 2 is running\n";
 
-	initAll();
+#define mainDELAY_LOOP_COUNT		( 0xfffff )
 
-	while (1) {
+void vTaskFunction(void *pvParameters) {
+	char *pcTaskName;
+	volatile unsigned long ul;
+
+	/* The string to print out is passed in via the parameter.  Cast this to a
+	 character pointer. */
+	pcTaskName = (char *) pvParameters;
+
+	/* As per most tasks, this task is implemented in an infinite loop. */
+	for (;;) {
+		/* Print out the name of this task. */
+		vPrintString(pcTaskName);
 
 		readAcc();
 
 		printOled();
 
-		printHttp();
+		//printHttp();
+
+		/* Delay for a period. */
+		for (ul = 0; ul < mainDELAY_LOOP_COUNT; ul++) {
+		/* This loop is just a very crude delay implementation.  There is
+		 nothing to do in here.  Later exercises will replace this crude
+		 loop with a proper delay/sleep function. */
+		}
 	}
 }
 
-// This function implements a very simple dynamic HTTP-server.
-// It waits until connected, then sends a HTTP-header and the
-// HTML-code stored in memory. Before sending, it replaces
-// some special strings with dynamic values.
-// NOTE: For strings crossing page boundaries, replacing will
-// not work. In this case, simply add some extra lines
-// (e.g. CR and LFs) to the HTML-code.
+int main(void) {
+
+	vPrintString("1\n");
+
+	initAll();
+
+	//xQueue = xQueueCreate(3, sizeof(xData));
+
+	//while (1) {
+
+	//readAcc();
+
+	//printOled();
+
+	//printHttp();
+	vPrintString("3\n");
+	//}
+
+	xTaskCreate(vTaskFunction, "Lendo sensor", 240, (void* )pcTextForTask1, 1, NULL);
+
+	vTaskStartScheduler();
+
+	vPrintString("2\n");
+
+	/*if (xQueue != NULL ) {
+	 xTaskCreate(vSenderTask, "Sender1", 240, (void * ) &(xStructsToSend[0]),
+	 2, NULL);
+	 xTaskCreate(vSenderTask, "Sender2", 240, (void * ) &(xStructsToSend[1]),
+	 2, NULL);
+
+	 xTaskCreate(vReceiverTask, "Receiver", 240, NULL, 1, NULL);
+
+	 vTaskStartScheduler();
+	 } else {
+	 The queue
+	 could not
+	 be created
+	 }*/
+
+	for (;;)
+		;
+	return 0;
+}
 
 void HTTPServer(void) {
 	if (SocketStatus & SOCK_CONNECTED) // check if somebody has connected to our TCP
@@ -263,19 +315,19 @@ void InsertDynamicValues(void) {
 					switch (*(Key + 2)) {
 					case '8':                                 // "AD8%"?
 					{
-						sprintf(NewKey, "%04d",  total.xoff); // insert pseudo-ADconverter value
+						sprintf(NewKey, "%04d", total.xoff); // insert pseudo-ADconverter value
 						memcpy(Key, NewKey, 4);
 						break;
 					}
 					case '7':                                 // "AD7%"?
 					{
-						sprintf(NewKey, "%04d",  total.yoff); // insert pseudo-ADconverter value
+						sprintf(NewKey, "%04d", total.yoff); // insert pseudo-ADconverter value
 						memcpy(Key, NewKey, 4);
 						break;
 					}
 					case '1':                                 // "AD1%"?
 					{
-						sprintf(NewKey, "%04d",  total.zoff); // insert pseudo-ADconverter value
+						sprintf(NewKey, "%04d", total.zoff); // insert pseudo-ADconverter value
 						memcpy(Key, NewKey, 4);
 						break;
 					}
@@ -286,24 +338,15 @@ void InsertDynamicValues(void) {
 
 /*int main( void )
  {
- The queue is created to hold a maximum of 3 structures of type xData.
  xQueue = xQueueCreate( 3, sizeof( xData ) );
 
  if( xQueue != NULL )
  {
- Create two instances of the task that will write to the queue.  The
- parameter is used to pass the structure that the task should write to the
- queue, so one task will continuously send xStructsToSend[ 0 ] to the queue
- while the other task will continuously send xStructsToSend[ 1 ].  Both
- tasks are created at priority 2 which is above the priority of the receiver.
  xTaskCreate( vSenderTask, "Sender1", 240, ( void * ) &( xStructsToSend[ 0 ] ), 2, NULL );
  xTaskCreate( vSenderTask, "Sender2", 240, ( void * ) &( xStructsToSend[ 1 ] ), 2, NULL );
 
- Create the task that will read from the queue.  The task is created with
- priority 1, so below the priority of the sender tasks.
  xTaskCreate( vReceiverTask, "Receiver", 240, NULL, 1, NULL );
 
- Start the scheduler so the created tasks start executing.
  vTaskStartScheduler();
  }
  else
@@ -311,9 +354,6 @@ void InsertDynamicValues(void) {
  The queue could not be created.
  }
 
- If all is well we will never reach here as the scheduler will now be
- running the tasks.  If we do reach here then it is likely that there was
- insufficient heap memory available for a resource to be created.
  for( ;; );
  return 0;
  }*/
@@ -430,8 +470,7 @@ static void vReceiverTask1(void *pvParameters) {
 			/* Data was successfully received from the queue, print out the received
 			 value and the source of the value. */
 
-				vPrintStringAndNumber("From Sender 1 = ",
-						xReceivedStructure.xoff);
+			vPrintStringAndNumber("From Sender 1 = ", xReceivedStructure.xoff);
 
 		} else {
 			/* We did not receive anything from the queue.  This must be an error

@@ -42,6 +42,27 @@
 					<entry kind="macro" name="__REDLIB__" value=""/>
 					<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC17xx"/>
 				</resource>
+				<resource project-relative-path="FreeRTOS_Source/portable/heap_2.c">
+					<entry kind="includePath" name="/Example18">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Example18/FreeRTOS_Source/include">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/Example18/FreeRTOS_Source/portable">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/FreeRTOS_Library/demo_code">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="includePath" name="/CMSISv1p30_LPC17xx/inc">
+						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+					</entry>
+					<entry kind="macro" name="DEBUG" value=""/>
+					<entry kind="macro" name="__CODE_RED" value=""/>
+					<entry kind="macro" name="__REDLIB__" value=""/>
+					<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC17xx"/>
+				</resource>
 				<resource project-relative-path="src/ethmac.c">
 					<entry kind="includePath" name="/Lib_CMSISv1p30_LPC17xx/inc">
 						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
