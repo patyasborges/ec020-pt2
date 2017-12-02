@@ -81,8 +81,8 @@ unsigned portBASE_TYPE uxPriority;
 	"return our own priority". */
 	uxPriority = uxTaskPriorityGet( NULL );
 
-	for( ;; )
-	{
+	//for( ;; )
+	//{
 		/* Print out the name of this task. */
 		vPrintString( "Task1 is running\n" );
 		
@@ -95,7 +95,7 @@ unsigned portBASE_TYPE uxPriority;
 		/* Task1 will only run when it has a priority higher than Task2.
 		Therefore, for this task to reach this point Task2 must already have
 		executed and set its priority back down to 0. */
-	}
+	//}
 }
 
 /*-----------------------------------------------------------*/
@@ -112,8 +112,8 @@ unsigned portBASE_TYPE uxPriority;
 	"return our own priority". */
 	uxPriority = uxTaskPriorityGet( NULL );
 
-	for( ;; )
-	{
+	//for( ;; )
+	//{
 		/* For this task to reach this point Task1 must have already run and
 		set the priority of this task higher than its own.
 
@@ -126,7 +126,7 @@ unsigned portBASE_TYPE uxPriority;
 		running again. */
 		vPrintString( "About to lower the Task2 priority\n" );
 		vTaskPrioritySet( NULL, ( uxPriority - 2 ) );
-	}
+	//}
 }
 /*-----------------------------------------------------------*/
 

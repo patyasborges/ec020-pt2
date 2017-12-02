@@ -29,8 +29,6 @@
 #define mainSENDER_1		1
 #define mainSENDER_2		2
 
-
-
 // CodeRed - added for use in dynamic side of web page
 unsigned int aaPagecounter = 0;
 unsigned int adcValue = 0;
@@ -38,10 +36,6 @@ unsigned int adcValue = 0;
 int32_t xoff = 0;
 int32_t yoff = 0;
 int32_t zoff = 0;
-int8_t x = 0;
-
-int8_t y = 0;
-int8_t z = 0;
 
 static void init_ssp(void) {
 	SSP_CFG_Type SSP_ConfigStruct;
@@ -98,38 +92,32 @@ static void init_i2c(void) {
 }
 
 /* The tasks to be created.  Two instances are created of the sender task while
-only a single instance is created of the receiver task. */
-static void vSenderTask( void *pvParameters );
-static void vReceiverTask( void *pvParameters );
+ only a single instance is created of the receiver task. */
+static void vSenderTask(void *pvParameters);
+static void vReceiverTask(void *pvParameters);
 
 /*-----------------------------------------------------------*/
 
 /* Declare a variable of type xQueueHandle.  This is used to store the queue
-that is accessed by all three tasks. */
+ that is accessed by all three tasks. */
 xQueueHandle xQueue;
 
 /* Define the structure type that will be passed on the queue. */
-typedef struct
-{
+typedef struct {
 	unsigned char ucValue;
 	unsigned char ucSource;
 } xData;
 
 /* Declare two variables of type xData that will be passed on the queue. */
-static const xData xStructsToSend[ 2 ] =
-{
-	{ 100, mainSENDER_1 }, /* Used by Sender1. */
-	{ 200, mainSENDER_2 }  /* Used by Sender2. */
+static const xData xStructsToSend[2] = { { 100, mainSENDER_1 }, /* Used by Sender1. */
+{ 200, mainSENDER_2 } /* Used by Sender2. */
 };
 
-int main(void) {
-
-	char NewKey[6];
+void initAll()
+{
 	init_ssp();
-
 	init_i2c();
 	acc_init();
-
 	oled_init();
 	oled_clearScreen(OLED_COLOR_WHITE);
 
@@ -138,29 +126,51 @@ int main(void) {
 	HTTPStatus = 0;                         // clear HTTP-server's flag register
 
 	TCPLocalPort = TCP_PORT_HTTP;               // set port we want to listen to
+}
+
+int readAcc()
+{
+	int8_t x = 0;
+	int8_t y = 0;
+	int8_t z = 0;
+
+	acc_read(&x, &y, &z);
+	xoff = 0 - x;
+	yoff = 0 - y;
+	zoff = 64 - z;
+}
+
+void printOled()
+{
+	char NewKey[6];
+
+	sprintf(NewKey, "%04d", xoff); // insert pseudo-ADconverter value
+	oled_putString(1, 25, NewKey, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
+	sprintf(NewKey, "%04d", yoff); // insert pseudo-ADconverter value
+	oled_putString(1, 33, NewKey, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
+	sprintf(NewKey, "%04d", zoff); // insert pseudo-ADconverter value
+	oled_putString(1, 41, NewKey, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
+}
+
+void printHttp() {
+	if (!(SocketStatus & SOCK_ACTIVE)) {
+		TCPPassiveOpen();
+	}
+	DoNetworkStuff();
+	HTTPServer();
+}
+
+int main(void) {
+
+	initAll();
 
 	while (1) {
 
+		readAcc();
 
-			acc_read(&x, &y, &z);
-			xoff = 0 - x;
-			yoff = 0 - y;
-			zoff = 64 - z;
+		printOled();
 
-			sprintf(NewKey, "%04d", xoff); // insert pseudo-ADconverter value
-			oled_putString(1, 25, NewKey, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
-			sprintf(NewKey, "%04d", yoff); // insert pseudo-ADconverter value
-			oled_putString(1, 33, NewKey, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
-			sprintf(NewKey, "%04d", zoff); // insert pseudo-ADconverter value
-			oled_putString(1, 41, NewKey, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
-
-			if (!(SocketStatus & SOCK_ACTIVE))
-				TCPPassiveOpen();   // listen for incoming TCP-connection
-			DoNetworkStuff();                // handle network and easyWEB-stack
-											 // events
-			HTTPServer();
-
-
+		printHttp();
 	}
 }
 
@@ -269,68 +279,65 @@ void InsertDynamicValues(void) {
 }
 
 /*int main( void )
-{
-     The queue is created to hold a maximum of 3 structures of type xData.
-    xQueue = xQueueCreate( 3, sizeof( xData ) );
+ {
+ The queue is created to hold a maximum of 3 structures of type xData.
+ xQueue = xQueueCreate( 3, sizeof( xData ) );
 
-	if( xQueue != NULL )
-	{
-		 Create two instances of the task that will write to the queue.  The
-		parameter is used to pass the structure that the task should write to the 
-		queue, so one task will continuously send xStructsToSend[ 0 ] to the queue
-		while the other task will continuously send xStructsToSend[ 1 ].  Both 
-		tasks are created at priority 2 which is above the priority of the receiver.
-		xTaskCreate( vSenderTask, "Sender1", 240, ( void * ) &( xStructsToSend[ 0 ] ), 2, NULL );
-		xTaskCreate( vSenderTask, "Sender2", 240, ( void * ) &( xStructsToSend[ 1 ] ), 2, NULL );
+ if( xQueue != NULL )
+ {
+ Create two instances of the task that will write to the queue.  The
+ parameter is used to pass the structure that the task should write to the
+ queue, so one task will continuously send xStructsToSend[ 0 ] to the queue
+ while the other task will continuously send xStructsToSend[ 1 ].  Both
+ tasks are created at priority 2 which is above the priority of the receiver.
+ xTaskCreate( vSenderTask, "Sender1", 240, ( void * ) &( xStructsToSend[ 0 ] ), 2, NULL );
+ xTaskCreate( vSenderTask, "Sender2", 240, ( void * ) &( xStructsToSend[ 1 ] ), 2, NULL );
 
-		 Create the task that will read from the queue.  The task is created with
-		priority 1, so below the priority of the sender tasks.
-		xTaskCreate( vReceiverTask, "Receiver", 240, NULL, 1, NULL );
+ Create the task that will read from the queue.  The task is created with
+ priority 1, so below the priority of the sender tasks.
+ xTaskCreate( vReceiverTask, "Receiver", 240, NULL, 1, NULL );
 
-		 Start the scheduler so the created tasks start executing.
-		vTaskStartScheduler();
-	}
-	else
-	{
-		 The queue could not be created.
-	}
-		
-     If all is well we will never reach here as the scheduler will now be
-    running the tasks.  If we do reach here then it is likely that there was 
-    insufficient heap memory available for a resource to be created.
-	for( ;; );
-	return 0;
-}*/
+ Start the scheduler so the created tasks start executing.
+ vTaskStartScheduler();
+ }
+ else
+ {
+ The queue could not be created.
+ }
+
+ If all is well we will never reach here as the scheduler will now be
+ running the tasks.  If we do reach here then it is likely that there was
+ insufficient heap memory available for a resource to be created.
+ for( ;; );
+ return 0;
+ }*/
 /*-----------------------------------------------------------*/
 
-static void vSenderTask( void *pvParameters )
-{
-portBASE_TYPE xStatus;
-const portTickType xTicksToWait = 100 / portTICK_RATE_MS;
+static void vSenderTask(void *pvParameters) {
+	portBASE_TYPE xStatus;
+	const portTickType xTicksToWait = 100 / portTICK_RATE_MS;
 
 	/* As per most tasks, this task is implemented within an infinite loop. */
-	for( ;; )
-	{
+	for (;;) {
 		/* The first parameter is the queue to which data is being sent.  The 
-		queue was created before the scheduler was started, so before this task
-		started to execute.
+		 queue was created before the scheduler was started, so before this task
+		 started to execute.
 
-		The second parameter is the address of the structure being sent.  The
-		address is passed in as the task parameter. 
+		 The second parameter is the address of the structure being sent.  The
+		 address is passed in as the task parameter.
 
-		The third parameter is the Block time - the time the task should be kept
-		in the Blocked state to wait for space to become available on the queue
-		should the queue already be full.  A block time is specified as the queue
-		will become full.  Items will only be removed from the queue when both
-		sending tasks are in the Blocked state.. */
+		 The third parameter is the Block time - the time the task should be kept
+		 in the Blocked state to wait for space to become available on the queue
+		 should the queue already be full.  A block time is specified as the queue
+		 will become full.  Items will only be removed from the queue when both
+		 sending tasks are in the Blocked state.. */
 		xStatus = xQueueSendToBack( xQueue, pvParameters, xTicksToWait );
 
-		if( xStatus != pdPASS )
-		{
+		if (xStatus != pdPASS) {
 			/* We could not write to the queue because it was full - this must
-			be an error as the receiving task should make space in the queue
-			as soon as both sending tasks are in the Blocked state. */
-			vPrintString( "Could not send to the queue.\n" );
+			 be an error as the receiving task should make space in the queue
+			 as soon as both sending tasks are in the Blocked state. */
+			vPrintString("Could not send to the queue.\n");
 		}
 
 		/* Allow the other sender task to execute. */
@@ -339,91 +346,76 @@ const portTickType xTicksToWait = 100 / portTICK_RATE_MS;
 }
 /*-----------------------------------------------------------*/
 
-static void vReceiverTask( void *pvParameters )
-{
-/* Declare the structure that will hold the values received from the queue. */
-xData xReceivedStructure;
-portBASE_TYPE xStatus;
+static void vReceiverTask(void *pvParameters) {
+	/* Declare the structure that will hold the values received from the queue. */
+	xData xReceivedStructure;
+	portBASE_TYPE xStatus;
 
 	/* This task is also defined within an infinite loop. */
-	for( ;; )
-	{
+	for (;;) {
 		/* As this task only runs when the sending tasks are in the Blocked state, 
-		and the sending tasks only block when the queue is full, this task should
-		always find the queue to be full.  3 is the queue length. */
-		if( uxQueueMessagesWaiting( xQueue ) != 3 )
-		{
-			vPrintString( "Queue should have been full!\n" );
+		 and the sending tasks only block when the queue is full, this task should
+		 always find the queue to be full.  3 is the queue length. */
+		if (uxQueueMessagesWaiting(xQueue) != 3) {
+			vPrintString("Queue should have been full!\n");
 		}
 
 		/* The first parameter is the queue from which data is to be received.  The
-		queue is created before the scheduler is started, and therefore before this
-		task runs for the first time.
+		 queue is created before the scheduler is started, and therefore before this
+		 task runs for the first time.
 
-		The second parameter is the buffer into which the received data will be
-		placed.  In this case the buffer is simply the address of a variable that
-		has the required size to hold the received structure. 
+		 The second parameter is the buffer into which the received data will be
+		 placed.  In this case the buffer is simply the address of a variable that
+		 has the required size to hold the received structure.
 
-		The last parameter is the block time - the maximum amount of time that the
-		task should remain in the Blocked state to wait for data to be available 
-		should the queue already be empty.  A block time is not necessary as this
-		task will only run when the queue is full so data will always be available. */
+		 The last parameter is the block time - the maximum amount of time that the
+		 task should remain in the Blocked state to wait for data to be available
+		 should the queue already be empty.  A block time is not necessary as this
+		 task will only run when the queue is full so data will always be available. */
 		xStatus = xQueueReceive( xQueue, &xReceivedStructure, 0 );
 
-		if( xStatus == pdPASS )
-		{
+		if (xStatus == pdPASS) {
 			/* Data was successfully received from the queue, print out the received
-			value and the source of the value. */
-			if( xReceivedStructure.ucSource == mainSENDER_1 )
-			{
-				vPrintStringAndNumber( "From Sender 1 = ", xReceivedStructure.ucValue );
+			 value and the source of the value. */
+			if (xReceivedStructure.ucSource == mainSENDER_1) {
+				vPrintStringAndNumber("From Sender 1 = ",
+						xReceivedStructure.ucValue);
+			} else {
+				vPrintStringAndNumber("From Sender 2 = ",
+						xReceivedStructure.ucValue);
 			}
-			else
-			{
-				vPrintStringAndNumber( "From Sender 2 = ", xReceivedStructure.ucValue );
-			}
-		}
-		else
-		{
+		} else {
 			/* We did not receive anything from the queue.  This must be an error 
-			as this task should only run when the queue is full. */
-			vPrintString( "Could not receive from the queue.\n" );
+			 as this task should only run when the queue is full. */
+			vPrintString("Could not receive from the queue.\n");
 		}
 	}
 }
 /*-----------------------------------------------------------*/
 
-void vApplicationMallocFailedHook( void )
-{
+void vApplicationMallocFailedHook(void) {
 	/* This function will only be called if an API call to create a task, queue
-	or semaphore fails because there is too little heap RAM remaining. */
-	for( ;; );
+	 or semaphore fails because there is too little heap RAM remaining. */
+	for (;;)
+		;
 }
 /*-----------------------------------------------------------*/
 
-void vApplicationStackOverflowHook( xTaskHandle *pxTask, signed char *pcTaskName )
-{
+void vApplicationStackOverflowHook(xTaskHandle *pxTask, signed char *pcTaskName) {
 	/* This function will only be called if a task overflows its stack.  Note
-	that stack overflow checking does slow down the context switch
-	implementation. */
-	for( ;; );
+	 that stack overflow checking does slow down the context switch
+	 implementation. */
+	for (;;)
+		;
 }
 /*-----------------------------------------------------------*/
 
-void vApplicationIdleHook( void )
-{
+void vApplicationIdleHook(void) {
 	/* This example does not use the idle hook to perform any processing. */
 }
 /*-----------------------------------------------------------*/
 
-void vApplicationTickHook( void )
-{
+void vApplicationTickHook(void) {
 	/* This example does not use the tick hook to perform any processing. */
 }
-
-
-
-
-
-
 
