@@ -1,0 +1,13 @@
+12:59:03 **** Incremental Build of configuration Debug for project easyweb ****
+make all 
+Building target: easyweb.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_CMSISv1p30_LPC17xx\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=easyweb.map -mcpu=cortex-m3 -mthumb -T "easyweb_Debug.ld" -o "easyweb.axf"  ./src/cr_startup_lpc17.o ./src/easyweb.o ./src/ethmac.o ./src/ew_systick.o ./src/tcpip.o   -lLib_CMSISv1p30_LPC17xx -lLib_EaBaseBoard -lLib_MCU
+c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/bin/ld.exe: cannot find -lLib_CMSISv1p30_LPC17xx
+c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/bin/ld.exe: cannot find -lLib_EaBaseBoard
+c:/nxp/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/bin/ld.exe: cannot find -lLib_MCU
+collect2: ld returned 1 exit status
+make: *** [easyweb.axf] Error 1
+
+12:59:04 Build Finished (took 337ms)
+
