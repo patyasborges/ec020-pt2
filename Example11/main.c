@@ -166,7 +166,8 @@ void printHttp() {
 const char *pcTextForTask1 = "Task 1 is running\n";
 const char *pcTextForTask2 = "Task 2 is running\n";
 
-#define mainDELAY_LOOP_COUNT		( 0xfffff )
+#define mainDELAY_LOOP_COUNT1		( 0xffff )
+#define mainDELAY_LOOP_COUNT2		( 0xff )
 
 void vTaskFunction(void *pvParameters) {
 	char *pcTaskName;
@@ -181,14 +182,14 @@ void vTaskFunction(void *pvParameters) {
 		/* Print out the name of this task. */
 		vPrintString(pcTaskName);
 
-		//readAcc();
+		readAcc();
 
 		//printOled();
 
 		//printHttp();
 
 		/* Delay for a period. */
-		for (ul = 0; ul < mainDELAY_LOOP_COUNT; ul++) {
+		for (ul = 0; ul < mainDELAY_LOOP_COUNT1; ul++) {
 		/* This loop is just a very crude delay implementation.  There is
 		 nothing to do in here.  Later exercises will replace this crude
 		 loop with a proper delay/sleep function. */
@@ -211,12 +212,12 @@ void vTaskFunction1(void *pvParameters) {
 
 		//readAcc();
 
-		//printOled();
+		printOled();
 
 		//printHttp();
 
 		/* Delay for a period. */
-		for (ul = 0; ul < mainDELAY_LOOP_COUNT; ul++) {
+		for (ul = 0; ul < mainDELAY_LOOP_COUNT1; ul++) {
 		/* This loop is just a very crude delay implementation.  There is
 		 nothing to do in here.  Later exercises will replace this crude
 		 loop with a proper delay/sleep function. */
@@ -228,7 +229,7 @@ int main(void) {
 
 	vPrintString("1\n");
 
-	//initAll();
+	initAll();
 
 	//xQueue = xQueueCreate(3, sizeof(xData));
 
