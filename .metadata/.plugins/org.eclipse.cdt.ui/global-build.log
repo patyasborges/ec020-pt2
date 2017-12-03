@@ -11109,3 +11109,277 @@ make: Nothing to be done for `all'.
 21:57:03 **** Incremental Build of configuration Debug for project Example11 ****
 make all 
 make: Nothing to be done for `all'.
+22:01:04 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+22:01:05 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+22:01:06 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Example11.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=Example11.map -mcpu=cortex-m3 -mthumb -T "Example11_Debug.ld" -o "Example11.axf"  ./cr_startup_lpc17.o ./ethmac.o ./ew_systick.o ./main.o ./tcpip.o   -lCMSISv1p30_LPC17xx -lFreeRTOS_Library -lLib_EaBaseBoard -lLib_MCU
+Finished building target: Example11.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Example11.axf; # arm-none-eabi-objcopy -O ihex Example11.axf Example11.hex ;
+   text	   data	    bss	    dec	    hex	filename
+  30640	     12	  12740	  43392	   a980	Example11.axf
+ 
+22:01:09 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+22:01:09 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+22:01:11 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+22:09:05 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+22:09:06 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+22:09:06 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+22:09:07 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+22:09:08 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+../main.c: In function 'readAcc':
+../main.c:148:2: error: incompatible types when returning type 'xData1' but 'xData' was expected
+../main.c: In function 'vSenderTask':
+../main.c:438:10: error: expected identifier or '(' before '=' token
+../main.c: In function 'vReceiverTask':
+../main.c:480:4: error: incompatible type for argument 2 of 'vPrintStringAndNumber'
+C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code/basic_io.h:37:6: note: expected 'long unsigned int' but argument is of type 'xData'
+../main.c:481:4: error: incompatible type for argument 1 of 'printOled'
+../main.c:151:6: note: expected 'xData1' but argument is of type 'xData'
+make: *** [main.o] Error 1
+22:09:10 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+../main.c: In function 'readAcc':
+../main.c:148:2: error: incompatible types when returning type 'xData1' but 'xData' was expected
+../main.c: In function 'vSenderTask':
+../main.c:438:10: error: expected identifier or '(' before '=' token
+../main.c: In function 'vReceiverTask':
+../main.c:480:4: error: incompatible type for argument 2 of 'vPrintStringAndNumber'
+C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code/basic_io.h:37:6: note: expected 'long unsigned int' but argument is of type 'xData'
+../main.c:481:4: error: incompatible type for argument 1 of 'printOled'
+../main.c:151:6: note: expected 'xData1' but argument is of type 'xData'
+make: *** [main.o] Error 1
+22:09:33 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+22:09:33 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+22:09:34 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+22:09:36 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+../main.c: In function 'vSenderTask':
+../main.c:438:10: error: expected identifier or '(' before '=' token
+../main.c: In function 'vReceiverTask':
+../main.c:480:4: error: incompatible type for argument 2 of 'vPrintStringAndNumber'
+C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code/basic_io.h:37:6: note: expected 'long unsigned int' but argument is of type 'xData'
+../main.c:481:4: error: incompatible type for argument 1 of 'printOled'
+../main.c:151:6: note: expected 'xData1' but argument is of type 'xData'
+make: *** [main.o] Error 1
+22:09:37 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+22:09:38 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+../main.c: In function 'vSenderTask':
+../main.c:438:10: error: expected identifier or '(' before '=' token
+../main.c: In function 'vReceiverTask':
+../main.c:480:4: error: incompatible type for argument 2 of 'vPrintStringAndNumber'
+C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code/basic_io.h:37:6: note: expected 'long unsigned int' but argument is of type 'xData'
+../main.c:481:4: error: incompatible type for argument 1 of 'printOled'
+../main.c:151:6: note: expected 'xData1' but argument is of type 'xData'
+make: *** [main.o] Error 1
+22:10:26 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+22:10:27 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+22:10:27 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+22:10:28 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+22:10:29 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+../main.c: In function 'vSenderTask':
+../main.c:438:10: error: expected identifier or '(' before '=' token
+../main.c: In function 'vReceiverTask':
+../main.c:480:4: error: incompatible type for argument 2 of 'vPrintStringAndNumber'
+C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code/basic_io.h:37:6: note: expected 'long unsigned int' but argument is of type 'xData1'
+make: *** [main.o] Error 1
+22:10:31 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+../main.c: In function 'vSenderTask':
+../main.c:438:10: error: expected identifier or '(' before '=' token
+../main.c: In function 'vReceiverTask':
+../main.c:480:4: error: incompatible type for argument 2 of 'vPrintStringAndNumber'
+C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code/basic_io.h:37:6: note: expected 'long unsigned int' but argument is of type 'xData1'
+make: *** [main.o] Error 1
+22:11:29 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+22:11:29 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+22:11:30 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+22:11:31 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+../main.c: In function 'vSenderTask':
+../main.c:438:10: error: expected identifier or '(' before '=' token
+make: *** [main.o] Error 1
+22:11:32 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+22:11:34 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+../main.c: In function 'vSenderTask':
+../main.c:438:10: error: expected identifier or '(' before '=' token
+make: *** [main.o] Error 1
+22:11:59 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+22:11:59 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+22:12:01 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Example11.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=Example11.map -mcpu=cortex-m3 -mthumb -T "Example11_Debug.ld" -o "Example11.axf"  ./cr_startup_lpc17.o ./ethmac.o ./ew_systick.o ./main.o ./tcpip.o   -lCMSISv1p30_LPC17xx -lFreeRTOS_Library -lLib_EaBaseBoard -lLib_MCU
+Finished building target: Example11.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Example11.axf; # arm-none-eabi-objcopy -O ihex Example11.axf Example11.hex ;
+   text	   data	    bss	    dec	    hex	filename
+  30648	     12	  12740	  43400	   a988	Example11.axf
+ 
+22:12:09 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+22:12:10 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+22:12:11 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+22:14:54 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+22:14:55 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+22:14:56 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Example11.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=Example11.map -mcpu=cortex-m3 -mthumb -T "Example11_Debug.ld" -o "Example11.axf"  ./cr_startup_lpc17.o ./ethmac.o ./ew_systick.o ./main.o ./tcpip.o   -lCMSISv1p30_LPC17xx -lFreeRTOS_Library -lLib_EaBaseBoard -lLib_MCU
+Finished building target: Example11.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Example11.axf; # arm-none-eabi-objcopy -O ihex Example11.axf Example11.hex ;
+   text	   data	    bss	    dec	    hex	filename
+  30648	     12	  12740	  43400	   a988	Example11.axf
+ 
+22:15:00 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+22:15:01 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+22:15:02 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+22:15:48 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+22:15:49 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+22:15:50 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Example11.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=Example11.map -mcpu=cortex-m3 -mthumb -T "Example11_Debug.ld" -o "Example11.axf"  ./cr_startup_lpc17.o ./ethmac.o ./ew_systick.o ./main.o ./tcpip.o   -lCMSISv1p30_LPC17xx -lFreeRTOS_Library -lLib_EaBaseBoard -lLib_MCU
+Finished building target: Example11.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Example11.axf; # arm-none-eabi-objcopy -O ihex Example11.axf Example11.hex ;
+   text	   data	    bss	    dec	    hex	filename
+  30648	     12	  12740	  43400	   a988	Example11.axf
+ 
+22:15:52 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+22:15:52 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+22:15:54 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
