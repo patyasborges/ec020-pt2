@@ -24,9 +24,6 @@ void start(void);
 void InitOsc(void);                              // prototypes
 void InitPorts(void);
 
-void HTTPServer(void);
-void InsertDynamicValues(void);
-
 unsigned int GetAD7Val(void);
 unsigned int GetTempVal(void);
 

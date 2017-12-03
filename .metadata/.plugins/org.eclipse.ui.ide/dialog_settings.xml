@@ -15,12 +15,12 @@
 		<item value="205" key="DIALOG_Y_ORIGIN"/>
 		<item value="337" key="DIALOG_X_ORIGIN"/>
 	</section>
+	<section name="ExternalProjectImportWizard">
+	</section>
 	<section name="WORKBENCH_SETTINGS">
 		<list key="ENABLED_TRANSFERS">
 			<item value="org.eclipse.ui.workbenchTransfer"/>
 			<item value=""/>
 		</list>
-	</section>
-	<section name="ExternalProjectImportWizard">
 	</section>
 </section>
