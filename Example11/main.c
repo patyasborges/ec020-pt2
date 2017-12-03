@@ -1,35 +1,28 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
-
-#include "stdlib.h"
-#include "stdio.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include "string.h"
 #include "stdint.h"
-
 #define extern
-
 #include "easyweb.h"
 #include "acc.h"
-
 #include "ethmac.h"
-
 #include "tcpip.h"
 #include "LPC17xx.h"
-
 #include "webside.h"
 #include "lpc17xx_pinsel.h"
 #include "lpc17xx_gpio.h"
 #include "lpc17xx_ssp.h"
 #include "lpc17xx_i2c.h"
 #include "oled.h"
-
 #include "basic_io.h"
 
-unsigned int aaPagecounter = 0;
 unsigned int adcValue = 0;
 
 static void init_ssp(void) {
+
 	SSP_CFG_Type SSP_ConfigStruct;
 	PINSEL_CFG_Type PinCfg;
 
@@ -131,8 +124,6 @@ void printHttp(xData1* t) {
 
 int main(void) {
 
-	vPrintString("Iniciando...\n");
-
 	initAll();
 
 	HTTPStatus = 0;
@@ -144,14 +135,11 @@ int main(void) {
 	if (xQueue != NULL ) {
 		xTaskCreate(vSenderReadTask, "READ", 240, NULL, 1, NULL);
 		xTaskCreate(vReceiverWriteTask, "WRITE", 240, NULL, 2, NULL);
-		//xTaskCreate(vWWWTask, "WWW", 240, NULL, 1, NULL);
+		xTaskCreate(vWWWTask, "WWW", 240, NULL, 2, NULL);
 
 		vTaskStartScheduler();
 	} else {
-
 	}
-
-	//vWWWTask(NULL);
 
 	for (;;)
 		;
@@ -252,6 +240,7 @@ void InsertDynamicValues(xData1* t) {
 }
 
 static void vSenderReadTask(void *pvParameters) {
+
 	xData1 lValueToSend;
 	portBASE_TYPE xStatus;
 
@@ -279,12 +268,10 @@ static void vWWWTask(void *pvParameters) {
 		lValueToSend = readAcc();
 
 		printHttp(&lValueToSend);
-		printOled(&lValueToSend);
 
 		//taskYIELD();
 	}
 }
-/*-----------------------------------------------------------*/
 
 static void vReceiverWriteTask(void *pvParameters) {
 

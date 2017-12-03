@@ -52,22 +52,16 @@
 					<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC17xx"/>
 				</resource>
 				<resource project-relative-path="cr_startup_lpc17.c">
-					<entry kind="includePath" name="/CMSISv1p30_LPC17xx/inc">
+					<entry kind="includePath" name="/FreeRTOS_Library/demo_code">
 						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 					</entry>
-					<entry kind="includePath" name="/FreeRTOS_Library/demo_code">
+					<entry kind="includePath" name="/CMSISv1p30_LPC17xx/inc">
 						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 					</entry>
 					<entry kind="includePath" name="/FreeRTOS_Library/include">
 						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 					</entry>
 					<entry kind="includePath" name="/FreeRTOS_Library/portable">
-						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
-					</entry>
-					<entry kind="includePath" name="/Lib_EaBaseBoard/inc">
-						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
-					</entry>
-					<entry kind="includePath" name="/Lib_MCU/inc">
 						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 					</entry>
 					<entry kind="macro" name="DEBUG" value=""/>

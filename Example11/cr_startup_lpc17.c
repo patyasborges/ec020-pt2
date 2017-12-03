@@ -163,7 +163,7 @@ void (* const g_pfnVectors[])(void) = {
 	0,										// Reserved
 	0,										// Reserved
 	0,										// Reserved
-	0,
+	0,										// Reserved
 	vPortSVCHandler,                        // SVCall handler
 	DebugMon_Handler,						// Debug monitor handler
 	0,										// Reserved
@@ -171,9 +171,6 @@ void (* const g_pfnVectors[])(void) = {
 	xPortSysTickHandler,                    // The SysTick handler
 
 	// Chip Level - LPC17
-	SVCall_Handler,
-	PendSV_Handler,	// Debug monitor handler
-	SysTick_Handler,// Debug monitor handler
 	WDT_IRQHandler,							// 16, 0x40 - WDT
 	TIMER0_IRQHandler,						// 17, 0x44 - TIMER0
 	TIMER1_IRQHandler,						// 18, 0x48 - TIMER1
