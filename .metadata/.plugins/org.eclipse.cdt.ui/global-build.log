@@ -10549,3 +10549,563 @@ make: Nothing to be done for `all'.
 21:04:50 **** Incremental Build of configuration Debug for project Example10 ****
 make all 
 make: Nothing to be done for `all'.
+21:07:52 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:07:52 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:07:54 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Example11.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=Example11.map -mcpu=cortex-m3 -mthumb -T "Example11_Debug.ld" -o "Example11.axf"  ./cr_startup_lpc17.o ./ethmac.o ./ew_systick.o ./main.o ./tcpip.o   -lCMSISv1p30_LPC17xx -lFreeRTOS_Library -lLib_EaBaseBoard -lLib_MCU
+Finished building target: Example11.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Example11.axf; # arm-none-eabi-objcopy -O ihex Example11.axf Example11.hex ;
+   text	   data	    bss	    dec	    hex	filename
+  29304	     24	  12740	  42068	   a454	Example11.axf
+ 
+21:07:57 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:07:57 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:07:58 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:08:32 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:08:33 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:08:34 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Example11.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=Example11.map -mcpu=cortex-m3 -mthumb -T "Example11_Debug.ld" -o "Example11.axf"  ./cr_startup_lpc17.o ./ethmac.o ./ew_systick.o ./main.o ./tcpip.o   -lCMSISv1p30_LPC17xx -lFreeRTOS_Library -lLib_EaBaseBoard -lLib_MCU
+Finished building target: Example11.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Example11.axf; # arm-none-eabi-objcopy -O ihex Example11.axf Example11.hex ;
+   text	   data	    bss	    dec	    hex	filename
+  29312	     24	  12740	  42076	   a45c	Example11.axf
+ 
+21:08:36 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:08:36 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:08:38 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:15:11 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:15:12 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:15:13 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:15:19 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:15:20 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:15:21 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:17:40 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:17:41 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:17:42 **** Incremental Build of configuration Debug for project Example10 ****
+make all 
+make: Nothing to be done for `all'.
+21:17:47 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:17:48 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:17:49 **** Incremental Build of configuration Debug for project Example10 ****
+make all 
+make: Nothing to be done for `all'.
+21:18:05 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:18:06 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:18:07 **** Incremental Build of configuration Debug for project Example10 ****
+make all 
+make: Nothing to be done for `all'.
+21:18:43 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:18:44 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:18:45 **** Incremental Build of configuration Debug for project Example10 ****
+make all 
+make: Nothing to be done for `all'.
+21:18:54 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:18:55 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:18:56 **** Incremental Build of configuration Debug for project Example10 ****
+make all 
+make: Nothing to be done for `all'.
+21:19:57 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:19:58 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:19:59 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../cr_startup_lpc17.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"cr_startup_lpc17.d" -MT"cr_startup_lpc17.d" -o "cr_startup_lpc17.o" "../cr_startup_lpc17.c"
+Finished building: ../cr_startup_lpc17.c
+ 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Example11.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=Example11.map -mcpu=cortex-m3 -mthumb -T "Example11_Debug.ld" -o "Example11.axf"  ./cr_startup_lpc17.o ./ethmac.o ./ew_systick.o ./main.o ./tcpip.o   -lCMSISv1p30_LPC17xx -lFreeRTOS_Library -lLib_EaBaseBoard -lLib_MCU
+Finished building target: Example11.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Example11.axf; # arm-none-eabi-objcopy -O ihex Example11.axf Example11.hex ;
+   text	   data	    bss	    dec	    hex	filename
+  17696	      8	  10916	  28620	   6fcc	Example11.axf
+ 
+21:20:18 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:20:18 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:20:19 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:20:38 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:20:46 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:20:46 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:20:48 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:20:55 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:20:55 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:20:57 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:21:00 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:21:00 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:21:02 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:25:44 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:25:46 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:25:48 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:26:04 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:26:05 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:26:06 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:27:18 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:27:19 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:27:20 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:27:43 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:27:43 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:27:45 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:37:18 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:37:18 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:37:20 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:37:25 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:37:26 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:37:27 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:38:02 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:38:03 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:38:04 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../cr_startup_lpc17.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"cr_startup_lpc17.d" -MT"cr_startup_lpc17.d" -o "cr_startup_lpc17.o" "../cr_startup_lpc17.c"
+Finished building: ../cr_startup_lpc17.c
+ 
+Building target: Example11.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=Example11.map -mcpu=cortex-m3 -mthumb -T "Example11_Debug.ld" -o "Example11.axf"  ./cr_startup_lpc17.o ./ethmac.o ./ew_systick.o ./main.o ./tcpip.o   -lCMSISv1p30_LPC17xx -lFreeRTOS_Library -lLib_EaBaseBoard -lLib_MCU
+Finished building target: Example11.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Example11.axf; # arm-none-eabi-objcopy -O ihex Example11.axf Example11.hex ;
+   text	   data	    bss	    dec	    hex	filename
+  17688	      8	  10916	  28612	   6fc4	Example11.axf
+ 
+21:38:08 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:38:08 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:38:10 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:39:02 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:39:03 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:39:05 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:39:05 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:39:06 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:39:08 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:48:07 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:48:08 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:48:09 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../cr_startup_lpc17.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"cr_startup_lpc17.d" -MT"cr_startup_lpc17.d" -o "cr_startup_lpc17.o" "../cr_startup_lpc17.c"
+Finished building: ../cr_startup_lpc17.c
+ 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Example11.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=Example11.map -mcpu=cortex-m3 -mthumb -T "Example11_Debug.ld" -o "Example11.axf"  ./cr_startup_lpc17.o ./ethmac.o ./ew_systick.o ./main.o ./tcpip.o   -lCMSISv1p30_LPC17xx -lFreeRTOS_Library -lLib_EaBaseBoard -lLib_MCU
+Finished building target: Example11.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Example11.axf; # arm-none-eabi-objcopy -O ihex Example11.axf Example11.hex ;
+   text	   data	    bss	    dec	    hex	filename
+  28488	     12	  12740	  41240	   a118	Example11.axf
+ 
+21:48:22 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:48:22 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:48:24 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:49:07 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:49:08 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:49:09 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../cr_startup_lpc17.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"cr_startup_lpc17.d" -MT"cr_startup_lpc17.d" -o "cr_startup_lpc17.o" "../cr_startup_lpc17.c"
+Finished building: ../cr_startup_lpc17.c
+ 
+Building target: Example11.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=Example11.map -mcpu=cortex-m3 -mthumb -T "Example11_Debug.ld" -o "Example11.axf"  ./cr_startup_lpc17.o ./ethmac.o ./ew_systick.o ./main.o ./tcpip.o   -lCMSISv1p30_LPC17xx -lFreeRTOS_Library -lLib_EaBaseBoard -lLib_MCU
+Finished building target: Example11.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Example11.axf; # arm-none-eabi-objcopy -O ihex Example11.axf Example11.hex ;
+   text	   data	    bss	    dec	    hex	filename
+  28480	     12	  12740	  41232	   a110	Example11.axf
+ 
+21:49:16 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:49:17 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:49:18 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:49:19 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:49:19 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:49:21 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:50:43 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:50:43 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:50:45 **** Build of configuration Debug for project Example18 ****
+make all 
+Building file: ../FreeRTOS_Source/portable/port.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example18" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example18\FreeRTOS_Source\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example18\FreeRTOS_Source\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -O1 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"FreeRTOS_Source/portable/port.d" -MT"FreeRTOS_Source/portable/port.d" -o "FreeRTOS_Source/portable/port.o" "../FreeRTOS_Source/portable/port.c"
+Finished building: ../FreeRTOS_Source/portable/port.c
+ 
+Building file: ../FreeRTOS_Source/demo_code/basic_io.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example18" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example18\FreeRTOS_Source\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example18\FreeRTOS_Source\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -O1 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"FreeRTOS_Source/demo_code/basic_io.d" -MT"FreeRTOS_Source/demo_code/basic_io.d" -o "FreeRTOS_Source/demo_code/basic_io.o" "../FreeRTOS_Source/demo_code/basic_io.c"
+Finished building: ../FreeRTOS_Source/demo_code/basic_io.c
+ 
+Building file: ../FreeRTOS_Source/demo_code/consoleprint.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example18" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example18\FreeRTOS_Source\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example18\FreeRTOS_Source\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -O1 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"FreeRTOS_Source/demo_code/consoleprint.d" -MT"FreeRTOS_Source/demo_code/consoleprint.d" -o "FreeRTOS_Source/demo_code/consoleprint.o" "../FreeRTOS_Source/demo_code/consoleprint.c"
+Finished building: ../FreeRTOS_Source/demo_code/consoleprint.c
+ 
+Building file: ../FreeRTOS_Source/list.c
+Invoking: MCU C Compiler
+Command canceled
+21:50:48 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:50:48 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:51:19 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:51:19 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:51:21 **** Build of configuration Debug for project Example18 ****
+make all 
+Building file: ../FreeRTOS_Source/list.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example18" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example18\FreeRTOS_Source\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Example18\FreeRTOS_Source\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -O1 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"FreeRTOS_Source/list.d" -MT"FreeRTOS_Source/list.d" -o "FreeRTOS_Source/list.o" "../FreeRTOS_Source/list.c"
+Finished building: ../FreeRTOS_Source/list.c
+ 
+Command canceled
+21:52:10 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:52:11 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:52:12 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Example11.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=Example11.map -mcpu=cortex-m3 -mthumb -T "Example11_Debug.ld" -o "Example11.axf"  ./cr_startup_lpc17.o ./ethmac.o ./ew_systick.o ./main.o ./tcpip.o   -lCMSISv1p30_LPC17xx -lFreeRTOS_Library -lLib_EaBaseBoard -lLib_MCU
+Finished building target: Example11.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Example11.axf; # arm-none-eabi-objcopy -O ihex Example11.axf Example11.hex ;
+   text	   data	    bss	    dec	    hex	filename
+  30704	     12	  12740	  43456	   a9c0	Example11.axf
+ 
+21:52:20 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:52:20 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:52:22 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:53:57 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:53:58 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:53:59 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Example11.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=Example11.map -mcpu=cortex-m3 -mthumb -T "Example11_Debug.ld" -o "Example11.axf"  ./cr_startup_lpc17.o ./ethmac.o ./ew_systick.o ./main.o ./tcpip.o   -lCMSISv1p30_LPC17xx -lFreeRTOS_Library -lLib_EaBaseBoard -lLib_MCU
+Finished building target: Example11.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Example11.axf; # arm-none-eabi-objcopy -O ihex Example11.axf Example11.hex ;
+   text	   data	    bss	    dec	    hex	filename
+  30640	     12	  12740	  43392	   a980	Example11.axf
+ 
+21:54:09 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:54:10 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:54:11 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:55:06 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:55:07 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:55:09 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Example11.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=Example11.map -mcpu=cortex-m3 -mthumb -T "Example11_Debug.ld" -o "Example11.axf"  ./cr_startup_lpc17.o ./ethmac.o ./ew_systick.o ./main.o ./tcpip.o   -lCMSISv1p30_LPC17xx -lFreeRTOS_Library -lLib_EaBaseBoard -lLib_MCU
+Finished building target: Example11.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Example11.axf; # arm-none-eabi-objcopy -O ihex Example11.axf Example11.hex ;
+   text	   data	    bss	    dec	    hex	filename
+  39176	     12	  12748	  51936	   cae0	Example11.axf
+ 
+21:55:10 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:55:11 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:55:12 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+21:56:58 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:56:58 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:57:00 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Example11.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=Example11.map -mcpu=cortex-m3 -mthumb -T "Example11_Debug.ld" -o "Example11.axf"  ./cr_startup_lpc17.o ./ethmac.o ./ew_systick.o ./main.o ./tcpip.o   -lCMSISv1p30_LPC17xx -lFreeRTOS_Library -lLib_EaBaseBoard -lLib_MCU
+Finished building target: Example11.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Example11.axf; # arm-none-eabi-objcopy -O ihex Example11.axf Example11.hex ;
+   text	   data	    bss	    dec	    hex	filename
+  37408	     12	  12748	  50168	   c3f8	Example11.axf
+ 
+21:57:01 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+21:57:02 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+21:57:03 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
