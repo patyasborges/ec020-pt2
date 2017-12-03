@@ -77,7 +77,6 @@ static void vSenderReadTask(void *pvParameters);
 static void vReceiverWriteTask(void *pvParameters);
 static void vWWWTask(void *pvParameters);
 
-
 xQueueHandle xQueue;
 
 typedef struct {
@@ -145,21 +144,21 @@ int main(void) {
 
 	xQueue = xQueueCreate(10, sizeof(xData1));
 
-	//if (xQueue != NULL ) {
-		//xTaskCreate(vSenderReadTask, "READ", 240, NULL, 1, NULL);
-		//xTaskCreate(vReceiverWriteTask, "WRITE", 240, NULL, 2, NULL);
+	if (xQueue != NULL ) {
+		xTaskCreate(vSenderReadTask, "READ", 240, NULL, 1, NULL);
+		xTaskCreate(vReceiverWriteTask, "WRITE", 240, NULL, 2, NULL);
 		//xTaskCreate(vWWWTask, "WWW", 240, NULL, 1, NULL);
 
-		//vTaskStartScheduler();
-	//} else {
-	//	/* The queue could not be created. */
-	//}
+		vTaskStartScheduler();
+	} else {
+		/* The queue could not be created. */
+	}
 
-	vWWWTask(NULL);
+	//vWWWTask(NULL);
 
-	//for (;;)
-	//	;
-//	return 0;
+	for (;;)
+		;
+	return 0;
 }
 
 void HTTPServer(xData1* t) {
