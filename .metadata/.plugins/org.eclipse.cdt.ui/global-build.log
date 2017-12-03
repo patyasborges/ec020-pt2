@@ -492,3 +492,151 @@ make: Nothing to be done for `all'.
 01:50:53 **** Incremental Build of configuration Debug for project Example11 ****
 make all 
 make: Nothing to be done for `all'.
+01:52:18 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+01:52:19 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+01:52:20 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+../main.c:164:6: warning: conflicting types for 'HTTPServer' [enabled by default]
+Finished building: ../main.c
+../main.c:132:2: note: previous implicit declaration of 'HTTPServer' was here
+ 
+../main.c:222:6: warning: conflicting types for 'InsertDynamicValues' [enabled by default]
+Building target: Example11.axf
+../main.c:195:5: note: previous implicit declaration of 'InsertDynamicValues' was here
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=Example11.map -mcpu=cortex-m3 -mthumb -T "Example11_Debug.ld" -o "Example11.axf"  ./cr_startup_lpc17.o ./ethmac.o ./ew_systick.o ./main.o ./tcpip.o   -lCMSISv1p30_LPC17xx -lFreeRTOS_Library -lLib_EaBaseBoard -lLib_MCU
+Finished building target: Example11.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Example11.axf; # arm-none-eabi-objcopy -O ihex Example11.axf Example11.hex ;
+   text	   data	    bss	    dec	    hex	filename
+  30944	     12	  12736	  43692	   aaac	Example11.axf
+ 
+01:52:23 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+01:52:23 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+01:52:25 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+01:53:25 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+01:53:25 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+01:53:27 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+../main.c:164:6: warning: conflicting types for 'HTTPServer' [enabled by default]
+Finished building: ../main.c
+../main.c:132:2: note: previous implicit declaration of 'HTTPServer' was here
+ 
+../main.c:222:6: warning: conflicting types for 'InsertDynamicValues' [enabled by default]
+Building target: Example11.axf
+../main.c:195:5: note: previous implicit declaration of 'InsertDynamicValues' was here
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=Example11.map -mcpu=cortex-m3 -mthumb -T "Example11_Debug.ld" -o "Example11.axf"  ./cr_startup_lpc17.o ./ethmac.o ./ew_systick.o ./main.o ./tcpip.o   -lCMSISv1p30_LPC17xx -lFreeRTOS_Library -lLib_EaBaseBoard -lLib_MCU
+Finished building target: Example11.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Example11.axf; # arm-none-eabi-objcopy -O ihex Example11.axf Example11.hex ;
+   text	   data	    bss	    dec	    hex	filename
+  30952	     12	  12736	  43700	   aab4	Example11.axf
+ 
+01:53:46 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+01:53:47 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+01:53:49 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+../main.c:164:6: warning: conflicting types for 'HTTPServer' [enabled by default]
+Finished building: ../main.c
+../main.c:132:2: note: previous implicit declaration of 'HTTPServer' was here
+ 
+../main.c:222:6: warning: conflicting types for 'InsertDynamicValues' [enabled by default]
+Building target: Example11.axf
+../main.c:195:5: note: previous implicit declaration of 'InsertDynamicValues' was here
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=Example11.map -mcpu=cortex-m3 -mthumb -T "Example11_Debug.ld" -o "Example11.axf"  ./cr_startup_lpc17.o ./ethmac.o ./ew_systick.o ./main.o ./tcpip.o   -lCMSISv1p30_LPC17xx -lFreeRTOS_Library -lLib_EaBaseBoard -lLib_MCU
+Finished building target: Example11.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Example11.axf; # arm-none-eabi-objcopy -O ihex Example11.axf Example11.hex ;
+   text	   data	    bss	    dec	    hex	filename
+  30808	     12	  12736	  43556	   aa24	Example11.axf
+ 
+01:53:51 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+01:53:52 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+01:53:53 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+01:54:30 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+01:54:31 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+01:54:32 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+Building file: ../main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__USE_CMSIS=CMSISv1p30_LPC17xx -D__CODE_RED -D__REDLIB__ -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\demo_code" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\include" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\portable" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\inc" -I"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\inc" -O0 -g3 -fsigned-char -c -fmessage-length=0 -fno-builtin -ffunction-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+../main.c:164:6: warning: conflicting types for 'HTTPServer' [enabled by default]
+Finished building: ../main.c
+../main.c:132:2: note: previous implicit declaration of 'HTTPServer' was here
+ 
+../main.c:222:6: warning: conflicting types for 'InsertDynamicValues' [enabled by default]
+Building target: Example11.axf
+../main.c:195:5: note: previous implicit declaration of 'InsertDynamicValues' was here
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\CMSISv1p30_LPC17xx\inc" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\FreeRTOS_Library\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_EaBaseBoard\Debug" -L"C:\Users\patricia\Documents\LPCXpresso_6.1.4_194\workspace2\Lib_MCU\Debug" -Xlinker --gc-sections -Xlinker -Map=Example11.map -mcpu=cortex-m3 -mthumb -T "Example11_Debug.ld" -o "Example11.axf"  ./cr_startup_lpc17.o ./ethmac.o ./ew_systick.o ./main.o ./tcpip.o   -lCMSISv1p30_LPC17xx -lFreeRTOS_Library -lLib_EaBaseBoard -lLib_MCU
+Finished building target: Example11.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size Example11.axf; # arm-none-eabi-objcopy -O ihex Example11.axf Example11.hex ;
+   text	   data	    bss	    dec	    hex	filename
+  30712	     12	  12736	  43460	   a9c4	Example11.axf
+ 
+01:54:35 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+01:54:36 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+01:54:37 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
+01:55:03 **** Incremental Build of configuration Debug for project CMSISv1p30_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+01:55:04 **** Incremental Build of configuration Debug for project FreeRTOS_Library ****
+make all 
+make: Nothing to be done for `all'.
+01:55:05 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.

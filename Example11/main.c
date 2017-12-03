@@ -94,10 +94,6 @@ void initAll() {
 	oled_clearScreen(OLED_COLOR_WHITE);
 
 	TCPLowLevelInit();
-
-	HTTPStatus = 0;
-
-	TCPLocalPort = TCP_PORT_HTTP;
 }
 
 xData1 readAcc() {
@@ -138,9 +134,13 @@ void printHttp(xData1* t) {
 
 int main(void) {
 
-	vPrintString("Iniciando...\n");
+	//vPrintString("Iniciando...\n");
 
 	initAll();
+
+	HTTPStatus = 0;
+
+	TCPLocalPort = TCP_PORT_HTTP;
 
 	xQueue = xQueueCreate(10, sizeof(xData1));
 
@@ -157,7 +157,7 @@ int main(void) {
 	//vWWWTask(NULL);
 
 	for (;;)
-		;
+		vPrintString("Could not receive from the queue.\r\n");
 	return 0;
 }
 
@@ -192,7 +192,7 @@ void HTTPServer(xData1* t) {
 				}
 
 				TCPTxDataCount = MAX_TCP_TX_DATA_SIZE;   // bytes to xfer
-				InsertDynamicValues(&t);              // exchange some strings...
+				InsertDynamicValues(&t);             // exchange some strings...
 				TCPTransmitTxBuffer();                   // xfer buffer
 			} else if (HTTPBytesToSend)               // transmit leftover bytes
 			{
@@ -234,20 +234,17 @@ void InsertDynamicValues(xData1* t) {
 			if (*(Key + 1) == 'D')
 				if (*(Key + 3) == '%')
 					switch (*(Key + 2)) {
-					case '8':
-					{
+					case '8': {
 						sprintf(NewKey, "%04d", t->xoff);
 						memcpy(Key, NewKey, 4);
 						break;
 					}
-					case '7':
-					{
+					case '7': {
 						sprintf(NewKey, "%04d", t->yoff);
 						memcpy(Key, NewKey, 4);
 						break;
 					}
-					case '1':
-					{
+					case '1': {
 						sprintf(NewKey, "%04d", t->zoff);
 						memcpy(Key, NewKey, 4);
 						break;
@@ -259,7 +256,7 @@ void InsertDynamicValues(xData1* t) {
 
 static void vSenderReadTask(void *pvParameters) {
 
-	vPrintString("vSenderReadTask\r\n");
+	//vPrintString("vSenderReadTask\r\n");
 
 	xData1 lValueToSend;
 	portBASE_TYPE xStatus;
@@ -269,10 +266,10 @@ static void vSenderReadTask(void *pvParameters) {
 		lValueToSend = readAcc();
 
 		xStatus = xQueueSendToBack( xQueue, &lValueToSend, 0 );
-		vPrintStringAndNumber("vSenderReadTask = ", lValueToSend.xoff);
+		//vPrintStringAndNumber("vSenderReadTask = ", lValueToSend.xoff);
 
 		if (xStatus != pdPASS) {
-			vPrintString("Could not send to the queue.\r\n");
+			//vPrintString("Could not send to the queue.\r\n");
 		}
 
 		taskYIELD();
@@ -281,17 +278,16 @@ static void vSenderReadTask(void *pvParameters) {
 
 static void vWWWTask(void *pvParameters) {
 
-	vPrintString("vWWWTask\r\n");
+	//vPrintString("vWWWTask\r\n");
 
 	xData1 lValueToSend;
 	portBASE_TYPE xStatus;
 
-	while(1) {
+	while (1) {
 
 		lValueToSend = readAcc();
 
-
-		vPrintStringAndNumber("vWWWTask = ", lValueToSend.xoff);
+		//vPrintStringAndNumber("vWWWTask = ", lValueToSend.xoff);
 
 		printHttp(&lValueToSend);
 		printOled(&lValueToSend);
@@ -309,16 +305,16 @@ static void vReceiverWriteTask(void *pvParameters) {
 
 	for (;;) {
 		if (uxQueueMessagesWaiting(xQueue) != 0) {
-			vPrintString("Queue should have been empty!\r\n");
+			//vPrintString("Queue should have been empty!\r\n");
 		}
 
 		xStatus = xQueueReceive( xQueue, &lReceivedValue, xTicksToWait );
 
 		if (xStatus == pdPASS) {
-			vPrintStringAndNumber("vReceiverWriteTask = ", lReceivedValue.xoff);
+			//vPrintStringAndNumber("vReceiverWriteTask = ", lReceivedValue.xoff);
 			printOled(&lReceivedValue);
 		} else {
-			vPrintString("Could not receive from the queue.\r\n");
+			//vPrintString("Could not receive from the queue.\r\n");
 		}
 	}
 }
