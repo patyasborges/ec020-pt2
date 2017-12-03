@@ -4,10 +4,10 @@
 		<provider class="org.eclipse.cdt.managedbuilder.language.settings.providers.GCCBuildCommandParser" id="com.crt.advproject.GCCBuildCommandParser" keep-relative-paths="false" name="MCU GCC Build Output Parser" parameter="(arm-none-eabi-gcc)|(arm-none-eabi-[gc]\+\+)|(gcc)|([gc]\+\+)|(clang)" prefer-non-shared="false">
 			<language id="org.eclipse.cdt.core.gcc">
 				<resource project-relative-path="ethmac.c">
-					<entry kind="includePath" name="/FreeRTOS_Library/demo_code">
+					<entry kind="includePath" name="/CMSISv1p30_LPC17xx/inc">
 						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 					</entry>
-					<entry kind="includePath" name="/CMSISv1p30_LPC17xx/inc">
+					<entry kind="includePath" name="/FreeRTOS_Library/demo_code">
 						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 					</entry>
 					<entry kind="includePath" name="/FreeRTOS_Library/include">
@@ -28,10 +28,10 @@
 					<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC17xx"/>
 				</resource>
 				<resource project-relative-path="ew_systick.c">
-					<entry kind="includePath" name="/FreeRTOS_Library/demo_code">
+					<entry kind="includePath" name="/CMSISv1p30_LPC17xx/inc">
 						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 					</entry>
-					<entry kind="includePath" name="/CMSISv1p30_LPC17xx/inc">
+					<entry kind="includePath" name="/FreeRTOS_Library/demo_code">
 						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 					</entry>
 					<entry kind="includePath" name="/FreeRTOS_Library/include">
@@ -52,10 +52,10 @@
 					<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC17xx"/>
 				</resource>
 				<resource project-relative-path="cr_startup_lpc17.c">
-					<entry kind="includePath" name="/FreeRTOS_Library/demo_code">
+					<entry kind="includePath" name="/CMSISv1p30_LPC17xx/inc">
 						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 					</entry>
-					<entry kind="includePath" name="/CMSISv1p30_LPC17xx/inc">
+					<entry kind="includePath" name="/FreeRTOS_Library/demo_code">
 						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 					</entry>
 					<entry kind="includePath" name="/FreeRTOS_Library/include">
@@ -76,10 +76,10 @@
 					<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC17xx"/>
 				</resource>
 				<resource project-relative-path="main.c">
-					<entry kind="includePath" name="/FreeRTOS_Library/demo_code">
+					<entry kind="includePath" name="/CMSISv1p30_LPC17xx/inc">
 						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 					</entry>
-					<entry kind="includePath" name="/CMSISv1p30_LPC17xx/inc">
+					<entry kind="includePath" name="/FreeRTOS_Library/demo_code">
 						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 					</entry>
 					<entry kind="includePath" name="/FreeRTOS_Library/include">
@@ -100,10 +100,10 @@
 					<entry kind="macro" name="__USE_CMSIS" value="CMSISv1p30_LPC17xx"/>
 				</resource>
 				<resource project-relative-path="tcpip.c">
-					<entry kind="includePath" name="/FreeRTOS_Library/demo_code">
+					<entry kind="includePath" name="/CMSISv1p30_LPC17xx/inc">
 						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 					</entry>
-					<entry kind="includePath" name="/CMSISv1p30_LPC17xx/inc">
+					<entry kind="includePath" name="/FreeRTOS_Library/demo_code">
 						<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 					</entry>
 					<entry kind="includePath" name="/FreeRTOS_Library/include">

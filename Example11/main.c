@@ -26,9 +26,6 @@
 
 #include "basic_io.h"
 
-#define mainSENDER_1		1
-#define mainSENDER_2		2
-
 unsigned int aaPagecounter = 0;
 unsigned int adcValue = 0;
 
@@ -127,14 +124,14 @@ void printOled(xData1* t) {
 
 void printHttp(xData1* t) {
 	if (!(SocketStatus & SOCK_ACTIVE))
-		TCPPassiveOpen();   // listen for incoming TCP-connection
+		TCPPassiveOpen();
 	DoNetworkStuff();
 	HTTPServer(&t);
 }
 
 int main(void) {
 
-	//vPrintString("Iniciando...\n");
+	vPrintString("Iniciando...\n");
 
 	initAll();
 
@@ -151,13 +148,13 @@ int main(void) {
 
 		vTaskStartScheduler();
 	} else {
-		/* The queue could not be created. */
+
 	}
 
 	//vWWWTask(NULL);
 
 	for (;;)
-		vPrintString("Could not receive from the queue.\r\n");
+		;
 	return 0;
 }
 
@@ -255,9 +252,6 @@ void InsertDynamicValues(xData1* t) {
 }
 
 static void vSenderReadTask(void *pvParameters) {
-
-	//vPrintString("vSenderReadTask\r\n");
-
 	xData1 lValueToSend;
 	portBASE_TYPE xStatus;
 
@@ -266,10 +260,9 @@ static void vSenderReadTask(void *pvParameters) {
 		lValueToSend = readAcc();
 
 		xStatus = xQueueSendToBack( xQueue, &lValueToSend, 0 );
-		//vPrintStringAndNumber("vSenderReadTask = ", lValueToSend.xoff);
 
 		if (xStatus != pdPASS) {
-			//vPrintString("Could not send to the queue.\r\n");
+
 		}
 
 		taskYIELD();
@@ -278,16 +271,12 @@ static void vSenderReadTask(void *pvParameters) {
 
 static void vWWWTask(void *pvParameters) {
 
-	//vPrintString("vWWWTask\r\n");
-
 	xData1 lValueToSend;
 	portBASE_TYPE xStatus;
 
 	while (1) {
 
 		lValueToSend = readAcc();
-
-		//vPrintStringAndNumber("vWWWTask = ", lValueToSend.xoff);
 
 		printHttp(&lValueToSend);
 		printOled(&lValueToSend);
@@ -305,16 +294,14 @@ static void vReceiverWriteTask(void *pvParameters) {
 
 	for (;;) {
 		if (uxQueueMessagesWaiting(xQueue) != 0) {
-			//vPrintString("Queue should have been empty!\r\n");
+
 		}
 
 		xStatus = xQueueReceive( xQueue, &lReceivedValue, xTicksToWait );
 
 		if (xStatus == pdPASS) {
-			//vPrintStringAndNumber("vReceiverWriteTask = ", lReceivedValue.xoff);
+
 			printOled(&lReceivedValue);
-		} else {
-			//vPrintString("Could not receive from the queue.\r\n");
 		}
 	}
 }

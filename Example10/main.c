@@ -106,17 +106,17 @@ portBASE_TYPE xStatus;
 
 		The second parameter is the address of the data to be sent.
 
-		The third parameter is the Block time – the time the task should be kept
+		The third parameter is the Block time ï¿½ the time the task should be kept
 		in the Blocked state to wait for space to become available on the queue
-		should the queue already be full.  In this case we don’t specify a block
+		should the queue already be full.  In this case we donï¿½t specify a block
 		time because there should always be space in the queue. */
 		xStatus = xQueueSendToBack( xQueue, &lValueToSend, 0 );
 
 		if( xStatus != pdPASS )
 		{
-			/* We could not write to the queue because it was full – this must
+			/* We could not write to the queue because it was full ï¿½ this must
 			be an error as the queue should never contain more than one item! */
-			vPrintString( "Could not send to the queue.\r\n" );
+			//vPrintString( "Could not send to the queue.\r\n" );
 		}
 
 		/* Allow the other sender task to execute. */
@@ -139,7 +139,7 @@ const portTickType xTicksToWait = 100 / portTICK_RATE_MS;
 		call should always find the queue empty. */
 		if( uxQueueMessagesWaiting( xQueue ) != 0 )
 		{
-			vPrintString( "Queue should have been empty!\r\n" );
+			//vPrintString( "Queue should have been empty!\r\n" );
 		}
 
 		/* The first parameter is the queue from which data is to be received.  The
@@ -150,7 +150,7 @@ const portTickType xTicksToWait = 100 / portTICK_RATE_MS;
 		placed.  In this case the buffer is simply the address of a variable that
 		has the required size to hold the received data. 
 
-		the last parameter is the block time – the maximum amount of time that the
+		the last parameter is the block time ï¿½ the maximum amount of time that the
 		task should remain in the Blocked state to wait for data to be available should
 		the queue already be empty. */
 		xStatus = xQueueReceive( xQueue, &lReceivedValue, xTicksToWait );
@@ -159,14 +159,14 @@ const portTickType xTicksToWait = 100 / portTICK_RATE_MS;
 		{
 			/* Data was successfully received from the queue, print out the received
 			value. */
-			vPrintStringAndNumber( "Received = ", lReceivedValue );
+			//vPrintStringAndNumber( "Received = ", lReceivedValue );
 		}
 		else
 		{
 			/* We did not receive anything from the queue even after waiting for 100ms.
 			This must be an error as the sending tasks are free running and will be
 			continuously writing to the queue. */
-			vPrintString( "Could not receive from the queue.\r\n" );
+			//vPrintString( "Could not receive from the queue.\r\n" );
 		}
 	}
 }
