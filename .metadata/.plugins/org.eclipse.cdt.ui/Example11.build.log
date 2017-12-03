@@ -1,7 +1,6 @@
-14:34:08 **** Clean-only build of configuration Debug for project Example11 ****
-make clean 
-rm -rf  ./cr_startup_lpc17.o ./ethmac.o ./ew_systick.o ./main.o ./tcpip.o  ./cr_startup_lpc17.d ./ethmac.d ./ew_systick.d ./main.d ./tcpip.d  Example11.axf
- 
+14:57:53 **** Incremental Build of configuration Debug for project Example11 ****
+make all 
+make: Nothing to be done for `all'.
 
-14:34:08 Build Finished (took 94ms)
+14:57:53 Build Finished (took 87ms)
 

@@ -115,14 +115,16 @@ void printOled(xData1* t) {
 	oled_putString(1, 41, NewKey, OLED_COLOR_BLACK, OLED_COLOR_WHITE);
 }
 
-void printHttp(xData1* t) {
+void printHttp(xData1 t) {
 	if (!(SocketStatus & SOCK_ACTIVE))
 		TCPPassiveOpen();
 	DoNetworkStuff();
-	HTTPServer(&t);
+	HTTPServer(t);
 }
 
 int main(void) {
+
+	vPrintString("main\r\n");
 
 	initAll();
 
@@ -135,10 +137,11 @@ int main(void) {
 	if (xQueue != NULL ) {
 		xTaskCreate(vSenderReadTask, "READ", 240, NULL, 1, NULL);
 		xTaskCreate(vReceiverWriteTask, "WRITE", 240, NULL, 2, NULL);
-		xTaskCreate(vWWWTask, "WWW", 240, NULL, 2, NULL);
+		//xTaskCreate(vWWWTask, "WWW", 240, NULL, 2, NULL);
 
 		vTaskStartScheduler();
 	} else {
+		// Nao foi possivel criar a fila
 	}
 
 	for (;;)
@@ -146,24 +149,19 @@ int main(void) {
 	return 0;
 }
 
-void HTTPServer(xData1* t) {
-	if (SocketStatus & SOCK_CONNECTED) // check if somebody has connected to our TCP
-	{
-		if (SocketStatus & SOCK_DATA_AVAILABLE) // check if remote TCP sent data
-			TCPReleaseRxBuffer();                      // and throw it away
+void HTTPServer(xData1 t) {
+	if (SocketStatus & SOCK_CONNECTED) {
+		if (SocketStatus & SOCK_DATA_AVAILABLE)
+			TCPReleaseRxBuffer();
 
-		if (SocketStatus & SOCK_TX_BUF_RELEASED) // check if buffer is free for TX
-		{
-			if (!(HTTPStatus & HTTP_SEND_PAGE)) // init byte-counter and pointer to webside
-			{                                          // if called the 1st time
-				HTTPBytesToSend = sizeof(WebSide) - 1; // get HTML length, ignore trailing zero
-				PWebSide = (unsigned char *) WebSide;    // pointer to HTML-code
+		if (SocketStatus & SOCK_TX_BUF_RELEASED) {
+			if (!(HTTPStatus & HTTP_SEND_PAGE)) {
+				HTTPBytesToSend = sizeof(WebSide) - 1;
+				PWebSide = (unsigned char *) WebSide;
 			}
 
-			if (HTTPBytesToSend > MAX_TCP_TX_DATA_SIZE) // transmit a segment of MAX_SIZE
-			{
-				if (!(HTTPStatus & HTTP_SEND_PAGE)) // 1st time, include HTTP-header
-				{
+			if (HTTPBytesToSend > MAX_TCP_TX_DATA_SIZE) {
+				if (!(HTTPStatus & HTTP_SEND_PAGE)) {
 					memcpy(TCP_TX_BUF, GetResponse, sizeof(GetResponse) - 1);
 					memcpy(TCP_TX_BUF + sizeof(GetResponse) - 1, PWebSide,
 							MAX_TCP_TX_DATA_SIZE - sizeof(GetResponse) + 1);
@@ -176,24 +174,23 @@ void HTTPServer(xData1* t) {
 					PWebSide += MAX_TCP_TX_DATA_SIZE;
 				}
 
-				TCPTxDataCount = MAX_TCP_TX_DATA_SIZE;   // bytes to xfer
-				InsertDynamicValues(&t);             // exchange some strings...
-				TCPTransmitTxBuffer();                   // xfer buffer
-			} else if (HTTPBytesToSend)               // transmit leftover bytes
-			{
+				TCPTxDataCount = MAX_TCP_TX_DATA_SIZE;
+				InsertDynamicValues(t);
+				TCPTransmitTxBuffer();
+			} else if (HTTPBytesToSend) {
 				memcpy(TCP_TX_BUF, PWebSide, HTTPBytesToSend);
-				TCPTxDataCount = HTTPBytesToSend;        // bytes to xfer
-				InsertDynamicValues(&t);        // exchange some strings...
+				TCPTxDataCount = HTTPBytesToSend;
+				InsertDynamicValues(t);
 
-				TCPTransmitTxBuffer();                   // send last segment
-				TCPClose();                              // and close connection
-				HTTPBytesToSend = 0;                     // all data sent
+				TCPTransmitTxBuffer();
+				TCPClose();
+				HTTPBytesToSend = 0;
 			}
 
-			HTTPStatus |= HTTP_SEND_PAGE;              // ok, 1st loop executed
+			HTTPStatus |= HTTP_SEND_PAGE;
 		}
 	} else
-		HTTPStatus &= ~HTTP_SEND_PAGE;       // reset help-flag if not connected
+		HTTPStatus &= ~HTTP_SEND_PAGE;
 }
 
 volatile unsigned int aaScrollbar = 400;
@@ -204,7 +201,8 @@ unsigned int GetAD7Val(void) {
 	return aaScrollbar;
 }
 
-void InsertDynamicValues(xData1* t) {
+void InsertDynamicValues(xData1 t) {
+
 	unsigned char *Key;
 	char NewKey[6];
 	unsigned int i;
@@ -220,17 +218,17 @@ void InsertDynamicValues(xData1* t) {
 				if (*(Key + 3) == '%')
 					switch (*(Key + 2)) {
 					case '8': {
-						sprintf(NewKey, "%04d", t->xoff);
+						sprintf(NewKey, "%04d", t.xoff);
 						memcpy(Key, NewKey, 4);
 						break;
 					}
 					case '7': {
-						sprintf(NewKey, "%04d", t->yoff);
+						sprintf(NewKey, "%04d", t.yoff);
 						memcpy(Key, NewKey, 4);
 						break;
 					}
 					case '1': {
-						sprintf(NewKey, "%04d", t->zoff);
+						sprintf(NewKey, "%04d", t.zoff);
 						memcpy(Key, NewKey, 4);
 						break;
 					}
@@ -251,9 +249,8 @@ static void vSenderReadTask(void *pvParameters) {
 		xStatus = xQueueSendToBack( xQueue, &lValueToSend, 0 );
 
 		if (xStatus != pdPASS) {
-
+			// Nao foi possivel postar na fila
 		}
-
 		taskYIELD();
 	}
 }
@@ -261,14 +258,14 @@ static void vSenderReadTask(void *pvParameters) {
 static void vWWWTask(void *pvParameters) {
 
 	xData1 lValueToSend;
-	portBASE_TYPE xStatus;
 
 	while (1) {
 
-		lValueToSend = readAcc();
+		lValueToSend.xoff = 1;
+		lValueToSend.yoff = 2;
+		lValueToSend.zoff = 3;
 
-		printHttp(&lValueToSend);
-
+		printHttp(lValueToSend);
 		//taskYIELD();
 	}
 }
@@ -281,14 +278,14 @@ static void vReceiverWriteTask(void *pvParameters) {
 
 	for (;;) {
 		if (uxQueueMessagesWaiting(xQueue) != 0) {
-
+			//
 		}
 
 		xStatus = xQueueReceive( xQueue, &lReceivedValue, xTicksToWait );
 
 		if (xStatus == pdPASS) {
-
 			printOled(&lReceivedValue);
+			//taskYIELD();
 		}
 	}
 }
